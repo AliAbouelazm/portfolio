@@ -1,4 +1,43 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Cover page typewriter and slide-up functionality
+  const coverPage = document.getElementById("cover-page");
+  const coverName = document.getElementById("cover-name");
+  const name = "ALI ABOUELAZM";
+  
+  if (coverPage && coverName) {
+    let charIndex = 0;
+    const typeWriter = () => {
+      if (charIndex < name.length) {
+        coverName.textContent = name.substring(0, charIndex + 1);
+        charIndex++;
+        setTimeout(typeWriter, 100);
+      }
+    };
+    
+    // Start typewriter animation
+    typeWriter();
+    
+    // Function to hide cover page
+    const hideCover = () => {
+      coverPage.classList.add("hidden");
+      setTimeout(() => {
+        coverPage.style.display = "none";
+      }, 800);
+    };
+    
+    // Click anywhere on cover to hide
+    coverPage.addEventListener("click", hideCover);
+    
+    // Also allow clicking the arrow container specifically
+    const arrowContainer = document.querySelector(".cover-arrow-container");
+    if (arrowContainer) {
+      arrowContainer.addEventListener("click", (e) => {
+        e.stopPropagation();
+        hideCover();
+      });
+    }
+  }
+  
   const sections = Array.from(document.querySelectorAll(".section"));
   const navLinks = Array.from(document.querySelectorAll(".tab-list a"));
   const currentYear = document.getElementById("current-year");
