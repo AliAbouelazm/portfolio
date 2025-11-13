@@ -172,14 +172,14 @@ main {
 .section {
   scroll-snap-align: start;
   min-height: 100vh;
-  padding: 240px 24px 200px;
+  padding: 400px 24px 400px;
   display: flex;
   background: var(--bg-page);
 }
 
 .section:last-of-type {
   min-height: auto;
-  padding: 240px 24px 60px;
+  padding: 400px 24px 200px;
 }
 
 #skills {
@@ -471,11 +471,11 @@ p {
   }
 
   .section {
-    padding: 160px 16px 140px;
+    padding: 300px 16px 300px;
   }
 
   .section:last-of-type {
-    padding: 160px 16px 60px;
+    padding: 300px 16px 200px;
   }
 
   .stack-item {
