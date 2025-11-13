@@ -407,5 +407,56 @@ function initializeCharts() {
       }
     });
   }
+
+  // Tech Stack Usage Chart
+  const techstackCtx = document.getElementById('techstack-chart');
+  if (techstackCtx) {
+    new Chart(techstackCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Python', 'SQL', 'R', 'JavaScript', 'Java', 'C++'],
+        datasets: [{
+          label: 'Usage Frequency',
+          data: [95, 80, 60, 50, 40, 30],
+          backgroundColor: 'rgba(230, 230, 230, 0.6)',
+          borderColor: '#e6e6e6',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        indexAxis: 'y',
+        plugins: {
+          legend: {
+            display: false
+          }
+        },
+        scales: {
+          x: {
+            beginAtZero: true,
+            max: 100,
+            ticks: {
+              color: '#b3b3b3',
+              callback: function(value) {
+                return value + '%';
+              }
+            },
+            grid: {
+              color: '#292929'
+            }
+          },
+          y: {
+            ticks: {
+              color: '#b3b3b3'
+            },
+            grid: {
+              color: '#292929'
+            }
+          }
+        }
+      }
+    });
+  }
 }
 
