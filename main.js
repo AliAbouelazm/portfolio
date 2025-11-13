@@ -293,8 +293,8 @@ function initializeCharts() {
             position: 'bottom',
             labels: {
               color: '#b3b3b3',
-              padding: 6,
-              font: { size: 9 }
+              padding: 4,
+              font: { size: 8 }
             }
           },
           tooltip: {
@@ -429,7 +429,7 @@ function initializeCharts() {
                 labels: {
                   color: '#b3b3b3',
                   padding: 8,
-                  font: { size: 9 },
+                  font: { size: 8 },
                   usePointStyle: true,
                   filter: function(item) { return item.text !== 'Lower Band'; }
                 }
@@ -536,7 +536,7 @@ function initializeCharts() {
             labels: {
               color: '#b3b3b3',
               padding: 8,
-              font: { size: 9 },
+              font: { size: 8 },
               usePointStyle: true
             }
           },
@@ -620,7 +620,7 @@ function initializeCharts() {
             max: 100,
             ticks: {
               color: '#b3b3b3',
-              font: { size: 9 },
+              font: { size: 8 },
               callback: function(value) { return value + '%'; }
             },
             grid: { color: '#292929' }
@@ -680,7 +680,7 @@ function initializeCharts() {
             beginAtZero: true,
             ticks: {
               color: '#b3b3b3',
-              font: { size: 9 },
+              font: { size: 8 },
               stepSize: 1
             },
             grid: { color: '#292929' }
@@ -688,7 +688,7 @@ function initializeCharts() {
           x: {
             ticks: {
               color: '#b3b3b3',
-              font: { size: 9 }
+              font: { size: 8 }
             },
             grid: { color: '#292929' }
           }
