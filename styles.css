@@ -391,23 +391,33 @@ p {
   text-decoration-color: transparent !important;
   position: relative;
   padding: 6px 12px;
-  transition: color 200ms ease;
+  transition: color 200ms ease, border-color 200ms ease;
   display: inline-block;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
 }
 
 .inline-actions a::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 0;
+  bottom: 0;
+  width: 1px;
+  height: 0;
+  background: var(--accent);
+  transition: height 200ms ease;
+  z-index: -1;
+}
+
+.inline-actions a::after {
+  content: "";
+  position: absolute;
   right: 0;
   bottom: 0;
-  border: 1px solid var(--accent);
-  border-radius: 0;
-  box-sizing: border-box;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 200ms ease;
+  width: 1px;
+  height: 0;
+  background: var(--accent);
+  transition: height 200ms ease;
   z-index: -1;
 }
 
@@ -415,11 +425,15 @@ p {
 .inline-actions a:focus-visible {
   color: var(--accent) !important;
   opacity: 1 !important;
+  border-top-color: var(--accent);
+  border-bottom-color: var(--accent);
 }
 
 .inline-actions a:hover::before,
-.inline-actions a:focus-visible::before {
-  transform: scaleX(1);
+.inline-actions a:focus-visible::before,
+.inline-actions a:hover::after,
+.inline-actions a:focus-visible::after {
+  height: 100%;
 }
 
 .skills-grid {
