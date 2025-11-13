@@ -536,7 +536,7 @@ p {
   border-radius: 6px;
   background: rgba(11, 11, 11, 0.5);
   transition: border-color 200ms ease, transform 200ms ease;
-  min-height: 400px;
+  height: 350px;
   display: flex;
   flex-direction: column;
 }
@@ -556,9 +556,9 @@ p {
 }
 
 .chart-wrapper canvas {
-  max-height: 250px;
-  height: auto;
-  flex: 1;
+  width: 100% !important;
+  height: 100% !important;
+  max-height: none;
 }
 
 .about-meta {
