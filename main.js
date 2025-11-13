@@ -284,8 +284,24 @@ function initializeCharts() {
         datasets: [{
           label: 'Coding Hours',
           data: [4, 5, 4, 5, 4, 2, 1],
-          backgroundColor: 'rgba(230, 230, 230, 0.6)',
-          borderColor: '#e6e6e6',
+          backgroundColor: [
+            'rgba(74, 144, 226, 0.7)',
+            'rgba(80, 200, 120, 0.7)',
+            'rgba(255, 107, 107, 0.7)',
+            'rgba(255, 165, 0, 0.7)',
+            'rgba(155, 89, 182, 0.7)',
+            'rgba(243, 156, 18, 0.7)',
+            'rgba(231, 76, 60, 0.7)'
+          ],
+          borderColor: [
+            '#4A90E2',
+            '#50C878',
+            '#FF6B6B',
+            '#FFA500',
+            '#9B59B6',
+            '#F39C12',
+            '#E74C3C'
+          ],
           borderWidth: 1
         }]
       },
@@ -330,12 +346,12 @@ function initializeCharts() {
         datasets: [{
           data: [29, 20, 20, 8, 6, 17],
           backgroundColor: [
-            'rgba(230, 230, 230, 0.8)',
-            'rgba(230, 230, 230, 0.6)',
-            'rgba(230, 230, 230, 0.5)',
-            'rgba(230, 230, 230, 0.4)',
-            'rgba(230, 230, 230, 0.3)',
-            'rgba(230, 230, 230, 0.2)'
+            'rgba(74, 144, 226, 0.8)',
+            'rgba(80, 200, 120, 0.8)',
+            'rgba(255, 107, 107, 0.8)',
+            'rgba(255, 165, 0, 0.8)',
+            'rgba(155, 89, 182, 0.8)',
+            'rgba(243, 156, 18, 0.8)'
           ],
           borderColor: '#0b0b0b',
           borderWidth: 2
@@ -370,12 +386,12 @@ function initializeCharts() {
         datasets: [{
           label: 'Courses/Certifications',
           data: [2, 5, 8, 12],
-          borderColor: '#e6e6e6',
-          backgroundColor: 'rgba(230, 230, 230, 0.1)',
+          borderColor: '#4A90E2',
+          backgroundColor: 'rgba(74, 144, 226, 0.2)',
           borderWidth: 2,
           fill: true,
           tension: 0.4,
-          pointBackgroundColor: '#e6e6e6',
+          pointBackgroundColor: '#4A90E2',
           pointBorderColor: '#0b0b0b',
           pointBorderWidth: 2,
           pointRadius: 5
@@ -422,8 +438,22 @@ function initializeCharts() {
         datasets: [{
           label: 'Usage Frequency',
           data: [95, 80, 60, 50, 40, 30],
-          backgroundColor: 'rgba(230, 230, 230, 0.6)',
-          borderColor: '#e6e6e6',
+          backgroundColor: [
+            'rgba(74, 144, 226, 0.7)',
+            'rgba(80, 200, 120, 0.7)',
+            'rgba(255, 107, 107, 0.7)',
+            'rgba(255, 165, 0, 0.7)',
+            'rgba(155, 89, 182, 0.7)',
+            'rgba(243, 156, 18, 0.7)'
+          ],
+          borderColor: [
+            '#4A90E2',
+            '#50C878',
+            '#FF6B6B',
+            '#FFA500',
+            '#9B59B6',
+            '#F39C12'
+          ],
           borderWidth: 1
         }]
       },
