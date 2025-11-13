@@ -383,10 +383,6 @@ function initializeCharts() {
           options: {
             responsive: true,
             maintainAspectRatio: true,
-            interaction: {
-              mode: 'index',
-              intersect: false
-            },
             plugins: {
               legend: {
                 display: true,
@@ -409,6 +405,9 @@ function initializeCharts() {
                   label: function(context) {
                     const label = context.dataset.label || '';
                     const value = context.parsed.y;
+                    if (context.datasetIndex === 1) {
+                      return label + ': ' + value.toFixed(1) + ' (projected)';
+                    }
                     if (label === 'WPM Over Time') {
                       return 'WPM: ' + value.toFixed(1);
                     } else if (label === 'Mean WPM') {
@@ -505,6 +504,7 @@ function initializeCharts() {
       options: {
         responsive: true,
         maintainAspectRatio: true,
+        cutout: '70%',
         plugins: {
           legend: {
             position: 'bottom',
