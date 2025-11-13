@@ -207,30 +207,6 @@ main {
   transform: translateY(0);
 }
 
-/* Projects section - ensure it's always visible and detectable for IntersectionObserver */
-/* Section always visible on all screen sizes */
-#projects {
-  filter: none !important;
-  opacity: 1 !important;
-  pointer-events: auto !important;
-  visibility: visible !important;
-  display: flex !important;
-  position: relative !important;
-}
-
-/* Projects content fades based on is-visible class - works on all screen sizes */
-#projects:not(.is-visible) .section-content {
-  opacity: 0 !important;
-  transform: translateY(18px) !important;
-  transition: opacity 240ms ease, transform 240ms ease !important;
-}
-
-#projects.is-visible .section-content {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-  transition: opacity 240ms ease, transform 240ms ease !important;
-}
-
 @media (min-width: 768px) {
   .section {
     transition: opacity 200ms ease, filter 200ms ease;
@@ -248,14 +224,13 @@ main {
     pointer-events: auto;
   }
 
-  /* Projects section - override media query rules, always visible */
-  #projects {
+  /* Projects section - only prevent blur, everything else works like other sections */
+  #projects:not(.is-visible) {
     filter: none !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-    visibility: visible !important;
-    display: flex !important;
-    position: relative !important;
+  }
+
+  #projects.is-visible {
+    filter: none !important;
   }
 }
 
@@ -601,12 +576,6 @@ p {
   }
 
   .section-content {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-
-  /* Projects content should still be visible even with reduced motion */
-  #projects .section-content {
     opacity: 1 !important;
     transform: none !important;
   }
