@@ -325,7 +325,7 @@ function initializeCharts() {
       data: {
         labels: ['Sleep', 'Coding/Work', 'Studying', 'Exercise', 'Social/Other'],
         datasets: [{
-          data: [35, 30, 20, 5, 10],
+          data: [29, 30, 25, 6, 10],
           backgroundColor: [
             'rgba(230, 230, 230, 0.8)',
             'rgba(230, 230, 230, 0.6)',
