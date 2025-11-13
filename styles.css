@@ -465,6 +465,7 @@ p {
 .life-stats {
   margin-top: 48px;
   padding-top: 48px;
+  padding-bottom: 60px;
   border-top: 1px solid var(--border);
 }
 
