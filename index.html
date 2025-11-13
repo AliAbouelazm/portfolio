@@ -89,39 +89,25 @@
           <h1 id="projects-heading" class="section-title">Projects</h1>
           <div class="stack">
             <article class="stack-item">
-              <div class="project-content">
-                <div class="project-text">
-                  <header>
-                    <h2>Stockly</h2>
-                    <p class="meta">Python | pandas | NumPy | scikit-learn | TensorFlow/Keras | SQLite | matplotlib | Streamlit</p>
-                  </header>
-                  <p class="item-description">A complete stock market prediction and backtesting system with SQL-based data storage, multiple ML models (Logistic Regression, Random Forest, LSTM), and a retro pixel-style visualizer. Built an end-to-end pipeline from data acquisition (Alpha Vantage API and CSV ingestion) through feature engineering (technical indicators like RSI, MACD, moving averages) to model training and evaluation. Implemented time-series backtesting with performance metrics and an interactive Streamlit app for real-time predictions and visualization.</p>
-                  <div class="inline-actions">
-                    <a href="https://github.com/AliAbouelazm/stock-predictor" target="_blank" rel="noopener">Code</a>
-                    <a href="https://stock-predictor-waktpqjhxmek7wwxwgoy2f.streamlit.app/" target="_blank" rel="noopener">Demo</a>
-                  </div>
-                </div>
-                <a href="https://stock-predictor-waktpqjhxmek7wwxwgoy2f.streamlit.app/" target="_blank" rel="noopener" class="project-preview">
-                  <div class="preview-placeholder">Preview</div>
-                </a>
+              <header>
+                <h2>Stockly</h2>
+                <p class="meta">Python | pandas | NumPy | scikit-learn | TensorFlow/Keras | SQLite | matplotlib | Streamlit</p>
+              </header>
+              <p class="item-description">A production-quality stock market prediction and backtesting system with SQLite-based data storage, comprehensive feature engineering, and multiple ML models. Implements a complete pipeline from data acquisition (Alpha Vantage API and CSV ingestion) through SQL schema design for prices, features, targets, and predictions. Engineered technical indicators including RSI, MACD, moving averages, and volatility measures. Trained both baseline classical models (Logistic Regression, Random Forest) and deep learning sequence models (LSTM/GRU) for next-day direction classification and return prediction. Built time-series-aware backtesting with rolling window evaluation, performance metrics, and strategy comparison against buy-and-hold. Features a deliberately retro, blocky pixel-style visualizer in Streamlit with square markers, step plots, and a bold color palette for displaying price charts, prediction signals, and cumulative returns.</p>
+              <div class="inline-actions">
+                <a href="https://github.com/AliAbouelazm/stock-predictor" target="_blank" rel="noopener">Code</a>
+                <a href="https://stock-predictor-waktpqjhxmek7wwxwgoy2f.streamlit.app/" target="_blank" rel="noopener">Demo</a>
               </div>
             </article>
             <article class="stack-item">
-              <div class="project-content">
-                <div class="project-text">
-                  <header>
-                    <h2>PL Predictor</h2>
-                    <p class="meta">Python | pandas | NumPy | scikit-learn | BeautifulSoup</p>
-                  </header>
-                  <p class="item-description">A machine learning system that predicts Premier League standings using tuned ML models. Built an automated data pipeline with BeautifulSoup and Selenium to scrape and update match data, player statistics, and team performance metrics in real-time. Processed and engineered features from historical match data to train predictive models that forecast final league positions and match outcomes.</p>
-                  <div class="inline-actions">
-                    <a href="https://github.com/AliAbouelazm/epl-match-predictor" target="_blank" rel="noopener">Code</a>
-                    <a href="https://epl-match-predictor-9f6bfrnmkmckwuuzvz7cdb.streamlit.app/" target="_blank" rel="noopener">Demo</a>
-                  </div>
-                </div>
-                <a href="https://epl-match-predictor-9f6bfrnmkmckwuuzvz7cdb.streamlit.app/" target="_blank" rel="noopener" class="project-preview">
-                  <div class="preview-placeholder">Preview</div>
-                </a>
+              <header>
+                <h2>PL Predictor</h2>
+                <p class="meta">Python | pandas | NumPy | scikit-learn | XGBoost | BeautifulSoup | Selenium | Streamlit</p>
+              </header>
+              <p class="item-description">An English Premier League match outcome predictor that classifies match results as Home Win, Draw, or Away Win using XGBoost. Demonstrates comprehensive data acquisition through both public historical datasets and web scraping techniques with BeautifulSoup and Selenium for real-time data updates. Implemented robust data cleaning and preprocessing pipelines to handle missing values, type conversions, and data standardization across multiple sources. Engineered features including rolling team performance metrics (goals scored/conceded, points per match), form-based features for home and away contexts, and difference features comparing team strengths. Trained an XGBoost classifier with time-based train/validation splits and comprehensive evaluation metrics. Includes explicit feature importance visualization and analysis, post-processing utilities for probability conversion and label mapping, and an interactive Streamlit demo app that allows users to predict match outcomes with real-time feature importance displays.</p>
+              <div class="inline-actions">
+                <a href="https://github.com/AliAbouelazm/epl-match-predictor" target="_blank" rel="noopener">Code</a>
+                <a href="https://epl-match-predictor-9f6bfrnmkmckwuuzvz7cdb.streamlit.app/" target="_blank" rel="noopener">Demo</a>
               </div>
             </article>
             <article class="stack-item">
