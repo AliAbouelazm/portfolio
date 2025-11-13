@@ -632,63 +632,10 @@ p {
   .contact-links {
     font-size: 0.8rem;
   }
-}
-
-  .tab-list a {
-    padding: 0.35rem 0.65rem;
-    font-size: 0.75rem;
-    letter-spacing: 0.06em;
-  }
-
-  main {
-    scroll-padding-top: 72px;
-    padding-top: 72px;
-  }
-
-  .section {
-    padding: 140px 16px 120px;
-  }
-
-  .section:last-of-type {
-    padding: 140px 16px 60px;
-  }
-
-  .stack-item {
-    padding-left: 20px;
-  }
-
-  .stack-item::before {
-    left: -8px;
-  }
-
-  .about-layout {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    justify-items: center;
-  }
-
-  .about-photo {
-    max-width: 260px;
-    display: block;
-  }
-
-  .about-photo img {
-    height: auto;
-  }
-
-  .about-copy {
-    align-items: stretch;
-    text-align: left;
-    gap: 16px;
-  }
-
-  .about-meta {
-    margin-top: 16px;
-    padding-top: 12px;
-  }
 
   .resume-preview iframe {
     min-height: 600px;
+    height: auto;
   }
 }
 
