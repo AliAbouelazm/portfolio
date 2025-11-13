@@ -940,16 +940,57 @@ p {
   .life-stats {
     margin-top: 32px;
     padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .stats-title {
+    font-size: clamp(1.3rem, 4vw, 1.6rem);
+    margin-bottom: 20px;
   }
 
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .stat-card {
+    padding: 16px;
+  }
+
+  .stat-card h3 {
+    font-size: 0.75rem;
+    margin-bottom: 8px;
+  }
+
+  .stat-value {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
   }
 
   .charts-container {
     grid-template-columns: 1fr;
-    gap: 24px;
+    grid-template-rows: auto;
+    gap: 20px;
+    height: auto;
+    margin-top: 0;
+  }
+
+  .chart-box {
+    padding: 16px;
+    min-height: 300px;
+  }
+
+  .chart-box h3 {
+    font-size: 0.8rem;
+    margin-bottom: 12px;
+  }
+
+  .chart-canvas-wrapper {
+    padding: 10px;
   }
 
   .about-photo {
