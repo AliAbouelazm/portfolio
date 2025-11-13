@@ -972,11 +972,17 @@ p {
   }
 
   .charts-container {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
     gap: 20px;
-    height: auto;
+    height: auto !important;
     margin-top: 0;
+  }
+
+  .chart-box {
+    grid-column: 1 !important;
+    grid-row: auto !important;
   }
 
   .chart-box {
