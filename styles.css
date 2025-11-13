@@ -563,7 +563,7 @@ p {
   position: relative;
   min-height: 0;
   width: 100%;
-  padding: 20px;
+  padding: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -571,10 +571,8 @@ p {
 
 .chart-canvas-wrapper canvas {
   display: block;
-  width: 70% !important;
-  height: 70% !important;
-  max-width: 70%;
-  max-height: 70%;
+  max-width: 90%;
+  max-height: 90%;
 }
 
 /* Chart layout - 2x2 grid */
