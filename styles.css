@@ -561,10 +561,10 @@ p {
 }
 
 .about-points p {
-  color: var(--text-primary);
+  color: var(--text-muted);
   font-family: var(--font-body);
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.7;
   margin: 0;
 }
 

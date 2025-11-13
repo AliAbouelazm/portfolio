@@ -370,6 +370,17 @@ function initializeCharts() {
                 size: 11
               }
             }
+          },
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                const label = context.label || '';
+                const value = context.parsed || 0;
+                const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                const percentage = ((value / total) * 100).toFixed(1);
+                return label + ': ' + value + ' hrs (' + percentage + '%)';
+              }
+            }
           }
         }
       }
@@ -464,6 +475,15 @@ function initializeCharts() {
         plugins: {
           legend: {
             display: false
+          },
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                const label = context.label || '';
+                const value = context.parsed.x || 0;
+                return label + ': ' + value + '%';
+              }
+            }
           }
         },
         scales: {
