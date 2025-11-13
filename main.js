@@ -545,7 +545,7 @@ function initializeCharts() {
             position: 'bottom',
             labels: {
               color: '#b3b3b3',
-              padding: 8,
+              padding: 6,
               font: { size: 11 },
               usePointStyle: true
             }
@@ -644,7 +644,7 @@ function initializeCharts() {
             grid: { color: '#292929' }
           },
           y: {
-            ticks: { color: '#b3b3b3', font: { size: 10 } },
+            ticks: { color: '#b3b3b3', font: { size: 11 } },
             grid: { color: '#292929' }
           }
         }
