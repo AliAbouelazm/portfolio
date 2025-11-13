@@ -67,7 +67,8 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       root: null,
-      threshold: 0.55,
+      threshold: 0.2,
+      rootMargin: '-100px 0px -100px 0px',
     }
   );
 
@@ -132,6 +133,16 @@ document.addEventListener("DOMContentLoaded", () => {
         break;
       default:
         break;
+    }
+  });
+
+  // Check initial visibility for all sections
+  sections.forEach((section) => {
+    const rect = section.getBoundingClientRect();
+    const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+    if (isInViewport) {
+      section.classList.add("is-visible");
+      setActiveSection(section.id, false);
     }
   });
 
