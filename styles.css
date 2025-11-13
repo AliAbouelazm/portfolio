@@ -197,15 +197,41 @@ main {
   display: flex;
   flex-direction: column;
   gap: 48px;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 240ms ease, transform 240ms ease;
+  will-change: opacity, transform;
+}
+
+.section.is-visible .section-content {
   opacity: 1;
-  transform: none;
+  transform: translateY(0);
 }
 
 @media (min-width: 768px) {
   .section {
-    opacity: 1;
+    transition: opacity 200ms ease, filter 200ms ease;
+  }
+
+  .section:not(.is-visible) {
+    filter: blur(6px);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .section.is-visible {
     filter: none;
+    opacity: 1;
     pointer-events: auto;
+  }
+
+  /* Projects section - only prevent blur, everything else works like other sections */
+  #projects:not(.is-visible) {
+    filter: none !important;
+  }
+
+  #projects.is-visible {
+    filter: none !important;
   }
 }
 
