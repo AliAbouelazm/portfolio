@@ -421,7 +421,7 @@ function initializeCharts() {
           options: {
             responsive: true,
             maintainAspectRatio: true,
-            aspectRatio: 3.5,
+            aspectRatio: 1.2,
             plugins: {
               legend: {
                 display: true,
@@ -634,67 +634,5 @@ function initializeCharts() {
     });
   }
 
-  // Project Timeline Bar Chart
-  const timelineCtx = document.getElementById('timeline-chart');
-  if (timelineCtx) {
-    chartInstances.timeline = new Chart(timelineCtx, {
-      type: 'bar',
-      data: {
-        labels: ['2022', '2023', '2024', '2025'],
-        datasets: [{
-          label: 'Projects Completed',
-          data: [1, 2, 1, 2],
-          backgroundColor: [
-            'rgba(74, 144, 226, 0.8)',
-            'rgba(80, 200, 120, 0.8)',
-            'rgba(255, 107, 107, 0.8)',
-            'rgba(155, 89, 182, 0.8)'
-          ],
-          borderColor: [
-            '#4A90E2',
-            '#50C878',
-            '#FF6B6B',
-            '#9B59B6'
-          ],
-          borderWidth: 2
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: true,
-        aspectRatio: 1.2,
-        plugins: {
-          legend: {
-            display: false
-          },
-          tooltip: {
-            callbacks: {
-              label: function(context) {
-                return context.parsed.y + ' project' + (context.parsed.y > 1 ? 's' : '');
-              }
-            }
-          }
-        },
-        scales: {
-          y: {
-            beginAtZero: true,
-            ticks: {
-              color: '#b3b3b3',
-              font: { size: 8 },
-              stepSize: 1
-            },
-            grid: { color: '#292929' }
-          },
-          x: {
-            ticks: {
-              color: '#b3b3b3',
-              font: { size: 8 }
-            },
-            grid: { color: '#292929' }
-          }
-        }
-      }
-    });
-  }
 }
 
