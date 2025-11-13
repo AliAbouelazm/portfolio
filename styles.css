@@ -541,7 +541,6 @@ p {
   transition: border-color 200ms ease, transform 200ms ease;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 }
 
 .chart-box:hover {
@@ -559,11 +558,18 @@ p {
   flex-shrink: 0;
 }
 
-.chart-box canvas {
+.chart-canvas-wrapper {
   flex: 1;
-  min-height: 0;
-  width: 100% !important;
-  height: 100% !important;
+  position: relative;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-canvas-wrapper canvas {
+  max-width: 100%;
+  height: auto !important;
 }
 
 /* Abstract layout - different sizes forming a cube design */

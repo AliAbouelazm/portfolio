@@ -254,18 +254,16 @@ async function fetchGitHubStats() {
 let chartInstances = {};
 
 function initializeCharts() {
-  // Check if Chart.js is loaded
   if (typeof Chart === 'undefined') {
     console.error('Chart.js is not loaded');
     return;
   }
 
-  // Chart.js default colors for dark theme
   Chart.defaults.color = '#b3b3b3';
   Chart.defaults.borderColor = '#292929';
   Chart.defaults.backgroundColor = 'rgba(230, 230, 230, 0.1)';
 
-  // Daily Routine Pie Chart
+  // Daily Routine Doughnut Chart
   const routineCtx = document.getElementById('routine-chart');
   if (routineCtx) {
     chartInstances.routine = new Chart(routineCtx, {
@@ -289,6 +287,7 @@ function initializeCharts() {
       options: {
         responsive: true,
         maintainAspectRatio: true,
+        aspectRatio: 1.5,
         plugins: {
           legend: {
             position: 'bottom',
@@ -422,6 +421,7 @@ function initializeCharts() {
           options: {
             responsive: true,
             maintainAspectRatio: true,
+            aspectRatio: 2,
             plugins: {
               legend: {
                 display: true,
@@ -528,6 +528,7 @@ function initializeCharts() {
       options: {
         responsive: true,
         maintainAspectRatio: true,
+        aspectRatio: 0.8,
         plugins: {
           legend: {
             display: true,
@@ -597,6 +598,7 @@ function initializeCharts() {
       options: {
         responsive: true,
         maintainAspectRatio: true,
+        aspectRatio: 3,
         indexAxis: 'y',
         plugins: {
           legend: {
