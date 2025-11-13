@@ -386,6 +386,7 @@ p {
 }
 
 .inline-actions a {
+  font-family: var(--font-heading);
   color: var(--text-primary) !important;
   text-decoration: none !important;
   text-decoration-color: transparent !important;
