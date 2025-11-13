@@ -421,7 +421,7 @@ function initializeCharts() {
           options: {
             responsive: true,
             maintainAspectRatio: true,
-            aspectRatio: 2.5,
+            aspectRatio: 3.5,
             plugins: {
               legend: {
                 display: true,
@@ -528,7 +528,7 @@ function initializeCharts() {
       options: {
         responsive: true,
         maintainAspectRatio: true,
-        aspectRatio: 0.5,
+        aspectRatio: 1.2,
         plugins: {
           legend: {
             display: true,
@@ -598,7 +598,7 @@ function initializeCharts() {
       options: {
         responsive: true,
         maintainAspectRatio: true,
-        aspectRatio: 1,
+        aspectRatio: 1.2,
         indexAxis: 'y',
         plugins: {
           legend: {
@@ -662,7 +662,7 @@ function initializeCharts() {
       options: {
         responsive: true,
         maintainAspectRatio: true,
-        aspectRatio: 2.5,
+        aspectRatio: 1.2,
         plugins: {
           legend: {
             display: false
