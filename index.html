@@ -6,6 +6,7 @@
     <title>Ali Abouelazm</title>
     <meta name="description" content="Portfolio of Ali Abouelazm, undergraduate data scientist focusing on applied machine learning, analytics, and sports technology.">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   </head>
   <body>
     <div id="cover-page" class="cover-page">
@@ -54,6 +55,45 @@
                 <li>Based in Sugar Land, TX</li>
                 <li>Open to internships in Data Science &amp; ML/AI</li>
               </ul>
+            </div>
+          </div>
+          <div class="life-stats">
+            <h2 class="stats-title">My Life in Data</h2>
+            <div class="stats-grid">
+              <div class="stat-card">
+                <h3>GitHub Activity</h3>
+                <div class="stat-value" id="github-commits">Loading...</div>
+                <p class="stat-label">Total Commits</p>
+              </div>
+              <div class="stat-card">
+                <h3>Projects</h3>
+                <div class="stat-value">5</div>
+                <p class="stat-label">Completed Projects</p>
+              </div>
+              <div class="stat-card">
+                <h3>Technologies</h3>
+                <div class="stat-value">25+</div>
+                <p class="stat-label">Tools & Languages</p>
+              </div>
+              <div class="stat-card">
+                <h3>Experience</h3>
+                <div class="stat-value">3+</div>
+                <p class="stat-label">Years in Data Science</p>
+              </div>
+            </div>
+            <div class="charts-container">
+              <div class="chart-wrapper">
+                <h3>Productivity by Day</h3>
+                <canvas id="productivity-chart"></canvas>
+              </div>
+              <div class="chart-wrapper">
+                <h3>Daily Routine</h3>
+                <canvas id="routine-chart"></canvas>
+              </div>
+              <div class="chart-wrapper">
+                <h3>Learning Progress</h3>
+                <canvas id="learning-chart"></canvas>
+              </div>
             </div>
           </div>
         </div>

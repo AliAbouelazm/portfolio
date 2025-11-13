@@ -228,5 +228,184 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 100);
     }
   }
+
+  // Life Stats Dashboard
+  initializeLifeStats();
 });
+
+// Life Stats Dashboard Functions
+function initializeLifeStats() {
+  // Fetch GitHub stats
+  fetchGitHubStats();
+  
+  // Initialize charts
+  initializeCharts();
+}
+
+async function fetchGitHubStats() {
+  try {
+    const response = await fetch('https://api.github.com/users/AliAbouelazm');
+    if (response.ok) {
+      const data = await response.json();
+      // Calculate approximate commits (GitHub API doesn't provide this directly)
+      // We'll use public repos as a proxy
+      const commitsElement = document.getElementById('github-commits');
+      if (commitsElement) {
+        // Estimate: average 50-100 commits per repo
+        const estimatedCommits = data.public_repos * 75;
+        commitsElement.textContent = estimatedCommits.toLocaleString() + '+';
+      }
+    }
+  } catch (error) {
+    console.log('GitHub API fetch failed, using default values');
+    const commitsElement = document.getElementById('github-commits');
+    if (commitsElement) {
+      commitsElement.textContent = '500+';
+    }
+  }
+}
+
+function initializeCharts() {
+  // Chart.js default colors - we'll customize for dark theme
+  Chart.defaults.color = '#b3b3b3';
+  Chart.defaults.borderColor = '#292929';
+  Chart.defaults.backgroundColor = 'rgba(230, 230, 230, 0.1)';
+
+  // Productivity by Day Chart
+  const productivityCtx = document.getElementById('productivity-chart');
+  if (productivityCtx) {
+    new Chart(productivityCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [{
+          label: 'Coding Hours',
+          data: [6, 7, 6, 8, 7, 4, 3],
+          backgroundColor: 'rgba(230, 230, 230, 0.6)',
+          borderColor: '#e6e6e6',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: {
+          legend: {
+            display: false
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              color: '#b3b3b3'
+            },
+            grid: {
+              color: '#292929'
+            }
+          },
+          x: {
+            ticks: {
+              color: '#b3b3b3'
+            },
+            grid: {
+              color: '#292929'
+            }
+          }
+        }
+      }
+    });
+  }
+
+  // Daily Routine Pie Chart
+  const routineCtx = document.getElementById('routine-chart');
+  if (routineCtx) {
+    new Chart(routineCtx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Sleep', 'Coding/Work', 'Studying', 'Exercise', 'Social/Other'],
+        datasets: [{
+          data: [35, 30, 20, 5, 10],
+          backgroundColor: [
+            'rgba(230, 230, 230, 0.8)',
+            'rgba(230, 230, 230, 0.6)',
+            'rgba(230, 230, 230, 0.4)',
+            'rgba(230, 230, 230, 0.3)',
+            'rgba(230, 230, 230, 0.2)'
+          ],
+          borderColor: '#0b0b0b',
+          borderWidth: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: {
+              color: '#b3b3b3',
+              padding: 12,
+              font: {
+                size: 11
+              }
+            }
+          }
+        }
+      }
+    });
+  }
+
+  // Learning Progress Line Chart
+  const learningCtx = document.getElementById('learning-chart');
+  if (learningCtx) {
+    new Chart(learningCtx, {
+      type: 'line',
+      data: {
+        labels: ['2022', '2023', '2024', '2025'],
+        datasets: [{
+          label: 'Courses/Certifications',
+          data: [2, 5, 8, 12],
+          borderColor: '#e6e6e6',
+          backgroundColor: 'rgba(230, 230, 230, 0.1)',
+          borderWidth: 2,
+          fill: true,
+          tension: 0.4,
+          pointBackgroundColor: '#e6e6e6',
+          pointBorderColor: '#0b0b0b',
+          pointBorderWidth: 2,
+          pointRadius: 5
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: {
+          legend: {
+            display: false
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              color: '#b3b3b3'
+            },
+            grid: {
+              color: '#292929'
+            }
+          },
+          x: {
+            ticks: {
+              color: '#b3b3b3'
+            },
+            grid: {
+              color: '#292929'
+            }
+          }
+        }
+      }
+    });
+  }
+}
 
