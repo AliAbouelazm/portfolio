@@ -300,9 +300,9 @@ p {
 .meta {
   font-family: var(--font-heading);
   color: var(--text-primary);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   padding-bottom: 4px;
   border-bottom: 1px solid var(--border);
   display: inline-block;
