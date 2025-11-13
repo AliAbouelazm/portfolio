@@ -241,16 +241,6 @@ main {
   }
 
   #projects {
-    transition: opacity 200ms ease !important;
-  }
-
-  #projects:not(.is-visible) {
-    filter: none !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-  }
-
-  #projects.is-visible {
     filter: none !important;
     opacity: 1 !important;
     pointer-events: auto !important;
