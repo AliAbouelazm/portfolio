@@ -89,10 +89,15 @@ body {
   content: '|';
   animation: blink 1s infinite;
   margin-left: 4px;
+  display: inline-block;
+  width: 0.15em;
+  opacity: 1;
+  transition: opacity 0.3s ease;
 }
 
 .cover-page.hidden .cover-name::after {
-  display: none;
+  opacity: 0;
+  animation: none;
 }
 
 @keyframes blink {
