@@ -32,11 +32,18 @@ document.addEventListener("DOMContentLoaded", () => {
     // Start typewriter animation
     typeWriter();
     
-    // Function to hide cover page
+    // Function to hide cover page and scroll to About section
     const hideCover = () => {
       coverPage.classList.add("hidden");
       setTimeout(() => {
         coverPage.style.display = "none";
+        // Scroll to About section
+        const aboutSection = document.getElementById("about");
+        if (aboutSection) {
+          const headerOffset = siteHeader?.offsetHeight ?? 0;
+          const top = aboutSection.getBoundingClientRect().top + window.scrollY - headerOffset - 12;
+          window.scrollTo({ top, behavior: "smooth" });
+        }
       }, 800);
     };
     
@@ -208,6 +215,18 @@ document.addEventListener("DOMContentLoaded", () => {
   } else if (sections[0]) {
     sections[0].classList.add("is-visible");
     setActiveSection(sections[0].id, true);
+    // If cover page is not visible, scroll to About section
+    const coverPage = document.getElementById("cover-page");
+    if (!coverPage || coverPage.classList.contains("hidden")) {
+      setTimeout(() => {
+        const aboutSection = document.getElementById("about");
+        if (aboutSection) {
+          const headerOffset = siteHeader?.offsetHeight ?? 0;
+          const top = aboutSection.getBoundingClientRect().top + window.scrollY - headerOffset - 12;
+          window.scrollTo({ top, behavior: "smooth" });
+        }
+      }, 100);
+    }
   }
 });
 
