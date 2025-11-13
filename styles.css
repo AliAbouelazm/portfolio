@@ -208,15 +208,10 @@ main {
 }
 
 #projects {
-  opacity: 1 !important;
-  pointer-events: auto !important;
   filter: none !important;
 }
 
 #projects .section-content {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-  pointer-events: auto !important;
   filter: none !important;
 }
 
@@ -239,21 +234,14 @@ main {
 
   #projects {
     filter: none !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
   }
 
   #projects:not(.is-visible) {
     filter: none !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
   }
 
   #projects .section-content {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
     filter: none !important;
-    pointer-events: auto !important;
   }
 }
 
