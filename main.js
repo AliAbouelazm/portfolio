@@ -389,30 +389,86 @@ function initializeCharts() {
   // Learning Progress Line Chart
   const learningCtx = document.getElementById('learning-chart');
   if (learningCtx) {
+    // Calculate linear regression prediction for 2026
+    // Data points: (2022, 0), (2023, 1), (2024, 8), (2025, 10)
+    // Using linear regression: y = mx + b
+    const x = [0, 1, 2, 3]; // Years from 2022
+    const y = [0, 1, 8, 10]; // Actual values
+    const n = x.length;
+    const sumX = x.reduce((a, b) => a + b, 0);
+    const sumY = y.reduce((a, b) => a + b, 0);
+    const sumXY = x.reduce((sum, xi, i) => sum + xi * y[i], 0);
+    const sumXX = x.reduce((sum, xi) => sum + xi * xi, 0);
+    const slope = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX);
+    const intercept = (sumY - slope * sumX) / n;
+    // Predict for 2026 (x = 4)
+    const predicted2026 = Math.round(slope * 4 + intercept);
+    
     chartInstances.learning = new Chart(learningCtx, {
       type: 'line',
       data: {
-        labels: ['2022', '2023', '2024', '2025'],
-        datasets: [{
-          label: 'Courses/Certifications',
-          data: [0, 1, 8, 10],
-          borderColor: '#4A90E2',
-          backgroundColor: 'rgba(74, 144, 226, 0.2)',
-          borderWidth: 2,
-          fill: true,
-          tension: 0.4,
-          pointBackgroundColor: '#4A90E2',
-          pointBorderColor: '#0b0b0b',
-          pointBorderWidth: 2,
-          pointRadius: 5
-        }]
+        labels: ['2022', '2023', '2024', '2025', '2026'],
+        datasets: [
+          {
+            label: 'Courses/Certifications',
+            data: [0, 1, 8, 10, null], // Actual data
+            borderColor: '#4A90E2',
+            backgroundColor: 'rgba(74, 144, 226, 0.2)',
+            borderWidth: 2,
+            fill: true,
+            tension: 0.4,
+            pointBackgroundColor: '#4A90E2',
+            pointBorderColor: '#0b0b0b',
+            pointBorderWidth: 2,
+            pointRadius: 5,
+            spanGaps: false
+          },
+          {
+            label: 'Projected',
+            data: [null, null, null, 10, predicted2026], // Projection from last point
+            borderColor: '#666666',
+            backgroundColor: 'rgba(102, 102, 102, 0.1)',
+            borderWidth: 2,
+            borderDash: [5, 5], // Dashed line
+            fill: false,
+            tension: 0.4,
+            pointBackgroundColor: '#666666',
+            pointBorderColor: '#0b0b0b',
+            pointBorderWidth: 2,
+            pointRadius: 5,
+            pointStyle: 'circle',
+            pointHoverBackgroundColor: '#666666',
+            pointHoverBorderColor: '#0b0b0b'
+          }
+        ]
       },
       options: {
         responsive: true,
         maintainAspectRatio: true,
         plugins: {
           legend: {
-            display: false
+            display: true,
+            position: 'bottom',
+            labels: {
+              color: '#b3b3b3',
+              padding: 12,
+              font: {
+                size: 11
+              },
+              usePointStyle: true
+            }
+          },
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                const label = context.dataset.label || '';
+                const value = context.parsed.y;
+                if (context.datasetIndex === 1) {
+                  return label + ': ' + value + ' (projected)';
+                }
+                return label + ': ' + value;
+              }
+            }
           }
         },
         scales: {
