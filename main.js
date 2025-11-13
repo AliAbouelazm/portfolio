@@ -280,7 +280,7 @@ function initializeCharts() {
         labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
         datasets: [{
           label: 'Coding Hours',
-          data: [6, 7, 6, 8, 7, 4, 3],
+          data: [4, 5, 4, 5, 4, 2, 1],
           backgroundColor: 'rgba(230, 230, 230, 0.6)',
           borderColor: '#e6e6e6',
           borderWidth: 1
