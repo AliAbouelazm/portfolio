@@ -238,7 +238,8 @@ function initializeLifeStats() {
   // Fetch GitHub stats
   fetchGitHubStats();
   
-  // Charts removed - will be reimplemented
+  // Initialize charts
+  initializeCharts();
 }
 
 async function fetchGitHubStats() {
@@ -249,5 +250,386 @@ async function fetchGitHubStats() {
   }
 }
 
-// Charts removed - will be reimplemented based on user specifications
+// Store chart instances
+let chartInstances = {};
+
+function initializeCharts() {
+  // Check if Chart.js is loaded
+  if (typeof Chart === 'undefined') {
+    console.error('Chart.js is not loaded');
+    return;
+  }
+
+  // Chart.js default colors for dark theme
+  Chart.defaults.color = '#b3b3b3';
+  Chart.defaults.borderColor = '#292929';
+  Chart.defaults.backgroundColor = 'rgba(230, 230, 230, 0.1)';
+
+  // Daily Routine Pie Chart
+  const routineCtx = document.getElementById('routine-chart');
+  if (routineCtx) {
+    chartInstances.routine = new Chart(routineCtx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Sleep', 'Coding/Work', 'Studying', 'Food', 'Exercise', 'Social/Other'],
+        datasets: [{
+          data: [29, 20, 20, 8, 6, 17],
+          backgroundColor: [
+            'rgba(74, 144, 226, 0.8)',
+            'rgba(80, 200, 120, 0.8)',
+            'rgba(255, 107, 107, 0.8)',
+            'rgba(255, 165, 0, 0.8)',
+            'rgba(155, 89, 182, 0.8)',
+            'rgba(243, 156, 18, 0.8)'
+          ],
+          borderColor: '#0b0b0b',
+          borderWidth: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: {
+              color: '#b3b3b3',
+              padding: 8,
+              font: { size: 10 }
+            }
+          },
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                const label = context.label || '';
+                const percentage = context.parsed || 0;
+                const hours = (percentage * 24 / 100).toFixed(1);
+                return label + ': ' + hours + ' hrs (' + percentage.toFixed(1) + '%)';
+              }
+            }
+          }
+        }
+      }
+    });
+  }
+
+  // Typing Rhythm Chart
+  const typingRhythmCtx = document.getElementById('typing-rhythm-chart');
+  if (typingRhythmCtx) {
+    fetch('typing_stats.json')
+      .then(response => response.json())
+      .then(data => {
+        const wpmData = data.wpm_over_time || [];
+        const labels = wpmData.map(item => {
+          const date = new Date(item.timestamp);
+          return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+        });
+        const wpmValues = wpmData.map(item => item.wpm);
+        const avgWPM = data.summary?.avg_wpm || (wpmValues.length > 0 ? wpmValues.reduce((a, b) => a + b, 0) / wpmValues.length : 0);
+        const medianWPM = wpmValues.length > 0 ? [...wpmValues].sort((a, b) => a - b)[Math.floor(wpmValues.length / 2)] : 0;
+        const mean = avgWPM;
+        const variance = wpmValues.length > 0 ? wpmValues.reduce((sum, val) => sum + Math.pow(val - mean, 2), 0) / wpmValues.length : 0;
+        const stdDev = Math.sqrt(variance);
+        const avgLine = new Array(wpmValues.length).fill(avgWPM);
+        const medianLine = new Array(wpmValues.length).fill(medianWPM);
+        const upperBand = new Array(wpmValues.length).fill(mean + stdDev);
+        const lowerBand = new Array(wpmValues.length).fill(mean - stdDev);
+        
+        const ctx = typingRhythmCtx.getContext('2d');
+        const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+        gradient.addColorStop(0, '#9B59B6');
+        gradient.addColorStop(0.3, '#50C878');
+        gradient.addColorStop(0.6, '#4A90E2');
+        gradient.addColorStop(1, '#FF6B6B');
+        const fillGradient = ctx.createLinearGradient(0, 0, 0, 400);
+        fillGradient.addColorStop(0, 'rgba(155, 89, 182, 0.2)');
+        fillGradient.addColorStop(0.3, 'rgba(80, 200, 120, 0.2)');
+        fillGradient.addColorStop(0.6, 'rgba(74, 144, 226, 0.2)');
+        fillGradient.addColorStop(1, 'rgba(255, 107, 107, 0.2)');
+        const pointColors = wpmValues.map(wpm => {
+          if (wpm < avgWPM - stdDev) return '#9B59B6';
+          if (wpm < avgWPM) return '#50C878';
+          if (wpm < avgWPM + stdDev) return '#4A90E2';
+          return '#FF6B6B';
+        });
+        
+        chartInstances.typingRhythm = new Chart(typingRhythmCtx, {
+          type: 'line',
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                label: 'WPM Over Time',
+                data: wpmValues,
+                borderColor: gradient,
+                backgroundColor: fillGradient,
+                borderWidth: 2.5,
+                fill: true,
+                tension: 0.4,
+                pointBackgroundColor: pointColors,
+                pointBorderColor: '#0b0b0b',
+                pointBorderWidth: 2,
+                pointRadius: 3,
+                pointHoverRadius: 6,
+                order: 3
+              },
+              {
+                label: 'Mean WPM',
+                data: avgLine,
+                borderColor: '#FF6B6B',
+                backgroundColor: 'transparent',
+                borderWidth: 2,
+                borderDash: [5, 5],
+                fill: false,
+                pointRadius: 0,
+                order: 2
+              },
+              {
+                label: 'Median WPM',
+                data: medianLine,
+                borderColor: '#FFA500',
+                backgroundColor: 'transparent',
+                borderWidth: 2,
+                borderDash: [3, 3],
+                fill: false,
+                pointRadius: 0,
+                order: 1
+              },
+              {
+                label: '±1 Std Dev',
+                data: upperBand,
+                borderColor: 'rgba(155, 89, 182, 0.4)',
+                backgroundColor: 'rgba(155, 89, 182, 0.1)',
+                borderWidth: 1,
+                borderDash: [2, 2],
+                fill: '+1',
+                pointRadius: 0,
+                order: 0
+              },
+              {
+                label: 'Lower Band',
+                data: lowerBand,
+                borderColor: 'rgba(155, 89, 182, 0.4)',
+                backgroundColor: 'rgba(155, 89, 182, 0.1)',
+                borderWidth: 1,
+                borderDash: [2, 2],
+                fill: false,
+                pointRadius: 0,
+                order: 0
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+              legend: {
+                display: true,
+                position: 'bottom',
+                labels: {
+                  color: '#b3b3b3',
+                  padding: 8,
+                  font: { size: 10 },
+                  usePointStyle: true,
+                  filter: function(item) { return item.text !== 'Lower Band'; }
+                }
+              },
+              tooltip: {
+                callbacks: {
+                  label: function(context) {
+                    const label = context.dataset.label || '';
+                    const value = context.parsed.y;
+                    if (label === 'WPM Over Time') return 'WPM: ' + value.toFixed(1);
+                    if (label === 'Mean WPM') return 'Mean: ' + value.toFixed(1) + ' WPM';
+                    if (label === 'Median WPM') return 'Median: ' + value.toFixed(1) + ' WPM';
+                    if (label === '±1 Std Dev') return 'Upper Bound: ' + value.toFixed(1) + ' WPM';
+                    return label + ': ' + value.toFixed(1);
+                  },
+                  footer: function(tooltipItems) {
+                    const wpmItem = tooltipItems.find(item => item.datasetIndex === 0);
+                    if (wpmItem && stdDev > 0) {
+                      const wpm = wpmItem.parsed.y;
+                      const zScore = ((wpm - avgWPM) / stdDev).toFixed(2);
+                      return 'Z-score: ' + zScore + 'σ';
+                    }
+                    return '';
+                  }
+                }
+              }
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+                ticks: { color: '#b3b3b3', font: { size: 10 } },
+                grid: { color: '#292929' }
+              },
+              x: {
+                ticks: { color: '#b3b3b3', font: { size: 10 }, maxRotation: 45, minRotation: 45 },
+                grid: { color: '#292929' }
+              }
+            }
+          }
+        });
+      })
+      .catch(error => {
+        console.error('Error loading typing stats:', error);
+      });
+  }
+
+  // Learning Progress Line Chart
+  const learningCtx = document.getElementById('learning-chart');
+  if (learningCtx) {
+    const x = [0, 1, 2, 3];
+    const y = [0, 1, 8, 10];
+    const n = x.length;
+    const sumX = x.reduce((a, b) => a + b, 0);
+    const sumY = y.reduce((a, b) => a + b, 0);
+    const sumXY = x.reduce((sum, xi, i) => sum + xi * y[i], 0);
+    const sumXX = x.reduce((sum, xi) => sum + xi * xi, 0);
+    const slope = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX);
+    const intercept = (sumY - slope * sumX) / n;
+    const predicted2026 = Math.round(slope * 4 + intercept);
+    
+    chartInstances.learning = new Chart(learningCtx, {
+      type: 'line',
+      data: {
+        labels: ['2022', '2023', '2024', '2025', '2026'],
+        datasets: [
+          {
+            label: 'Courses/Certifications',
+            data: [0, 1, 8, 10, null],
+            borderColor: '#4A90E2',
+            backgroundColor: 'rgba(74, 144, 226, 0.2)',
+            borderWidth: 2,
+            fill: true,
+            tension: 0.4,
+            pointBackgroundColor: '#4A90E2',
+            pointBorderColor: '#0b0b0b',
+            pointBorderWidth: 2,
+            pointRadius: 4,
+            spanGaps: false
+          },
+          {
+            label: 'Projected',
+            data: [null, null, null, 10, predicted2026],
+            borderColor: '#666666',
+            backgroundColor: 'rgba(102, 102, 102, 0.2)',
+            borderWidth: 2,
+            borderDash: [5, 5],
+            fill: true,
+            tension: 0.4,
+            pointBackgroundColor: '#666666',
+            pointBorderColor: '#0b0b0b',
+            pointBorderWidth: 2,
+            pointRadius: 4
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: {
+          legend: {
+            display: true,
+            position: 'bottom',
+            labels: {
+              color: '#b3b3b3',
+              padding: 8,
+              font: { size: 10 },
+              usePointStyle: true
+            }
+          },
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                const label = context.dataset.label || '';
+                const value = context.parsed.y;
+                if (context.datasetIndex === 1) return label + ': ' + value + ' (projected)';
+                return label + ': ' + value;
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: { color: '#b3b3b3', font: { size: 10 } },
+            grid: { color: '#292929' }
+          },
+          x: {
+            ticks: { color: '#b3b3b3', font: { size: 10 } },
+            grid: { color: '#292929' }
+          }
+        }
+      }
+    });
+  }
+
+  // Tech Stack Usage Chart
+  const techstackCtx = document.getElementById('techstack-chart');
+  if (techstackCtx) {
+    chartInstances.techstack = new Chart(techstackCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Python', 'SQL', 'R', 'JavaScript', 'Java', 'C++'],
+        datasets: [{
+          label: 'Usage Frequency',
+          data: [95, 80, 60, 50, 40, 30],
+          backgroundColor: [
+            'rgba(74, 144, 226, 0.7)',
+            'rgba(80, 200, 120, 0.7)',
+            'rgba(255, 107, 107, 0.7)',
+            'rgba(255, 165, 0, 0.7)',
+            'rgba(155, 89, 182, 0.7)',
+            'rgba(243, 156, 18, 0.7)'
+          ],
+          borderColor: [
+            '#4A90E2',
+            '#50C878',
+            '#FF6B6B',
+            '#FFA500',
+            '#9B59B6',
+            '#F39C12'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        indexAxis: 'y',
+        plugins: {
+          legend: {
+            display: false
+          },
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                const label = context.label || '';
+                const value = context.parsed.x || 0;
+                return label + ': ' + value + '%';
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            beginAtZero: true,
+            max: 100,
+            ticks: {
+              color: '#b3b3b3',
+              font: { size: 10 },
+              callback: function(value) { return value + '%'; }
+            },
+            grid: { color: '#292929' }
+          },
+          y: {
+            ticks: { color: '#b3b3b3', font: { size: 10 } },
+            grid: { color: '#292929' }
+          }
+        }
+      }
+    });
+  }
+}
 
