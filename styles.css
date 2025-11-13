@@ -217,6 +217,7 @@ main {
   opacity: 1 !important;
   transform: translateY(0) !important;
   pointer-events: auto !important;
+  filter: none !important;
 }
 
 @media (min-width: 768px) {
@@ -245,6 +246,13 @@ main {
   #projects:not(.is-visible) {
     filter: none !important;
     opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  #projects .section-content {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    filter: none !important;
     pointer-events: auto !important;
   }
 }
