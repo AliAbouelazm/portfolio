@@ -427,10 +427,10 @@ function initializeCharts() {
             label: 'Projected',
             data: [null, null, null, 10, predicted2026], // Projection from last point
             borderColor: '#666666',
-            backgroundColor: 'rgba(102, 102, 102, 0.1)',
+            backgroundColor: 'rgba(102, 102, 102, 0.2)', // Gray fill under line
             borderWidth: 2,
             borderDash: [5, 5], // Dashed line
-            fill: false,
+            fill: true, // Enable fill under the line
             tension: 0.4,
             pointBackgroundColor: '#666666',
             pointBorderColor: '#0b0b0b',
