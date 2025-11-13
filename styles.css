@@ -208,8 +208,27 @@ main {
 }
 
 /* Projects section - ensure it's always visible and detectable for IntersectionObserver */
+/* Section always visible on all screen sizes */
 #projects {
   filter: none !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  visibility: visible !important;
+  display: flex !important;
+  position: relative !important;
+}
+
+/* Projects content fades based on is-visible class - works on all screen sizes */
+#projects:not(.is-visible) .section-content {
+  opacity: 0 !important;
+  transform: translateY(18px) !important;
+  transition: opacity 240ms ease, transform 240ms ease !important;
+}
+
+#projects.is-visible .section-content {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: opacity 240ms ease, transform 240ms ease !important;
 }
 
 @media (min-width: 768px) {
@@ -229,24 +248,14 @@ main {
     pointer-events: auto;
   }
 
-  /* Projects section - always visible and detectable, content fades in/out */
+  /* Projects section - override media query rules, always visible */
   #projects {
     filter: none !important;
     opacity: 1 !important;
     pointer-events: auto !important;
-  }
-
-  /* Projects content fades based on is-visible class */
-  #projects:not(.is-visible) .section-content {
-    opacity: 0 !important;
-    transform: translateY(18px) !important;
-    transition: opacity 240ms ease, transform 240ms ease !important;
-  }
-
-  #projects.is-visible .section-content {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-    transition: opacity 240ms ease, transform 240ms ease !important;
+    visibility: visible !important;
+    display: flex !important;
+    position: relative !important;
   }
 }
 
@@ -592,6 +601,12 @@ p {
   }
 
   .section-content {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Projects content should still be visible even with reduced motion */
+  #projects .section-content {
     opacity: 1 !important;
     transform: none !important;
   }
