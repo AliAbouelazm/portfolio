@@ -207,11 +207,8 @@ main {
   transform: translateY(0);
 }
 
+/* Projects section - only prevent blur, let everything else work normally */
 #projects {
-  filter: none !important;
-}
-
-#projects .section-content {
   filter: none !important;
 }
 
@@ -246,10 +243,6 @@ main {
     filter: none !important;
     opacity: 1 !important;
     pointer-events: auto !important;
-  }
-
-  #projects .section-content {
-    filter: none !important;
   }
 }
 
