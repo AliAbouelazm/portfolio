@@ -300,6 +300,12 @@ p {
   gap: 10px;
 }
 
+.item-description {
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin: 0 0 16px;
+}
+
 .about-layout {
   display: grid;
   gap: 32px;
