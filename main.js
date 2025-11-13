@@ -293,8 +293,8 @@ function initializeCharts() {
             position: 'bottom',
             labels: {
               color: '#b3b3b3',
-              padding: 4,
-              font: { size: 8 }
+              padding: 6,
+              font: { size: 11 }
             }
           },
           tooltip: {
@@ -429,7 +429,7 @@ function initializeCharts() {
                 labels: {
                   color: '#b3b3b3',
                   padding: 8,
-                  font: { size: 8 },
+                  font: { size: 11 },
                   usePointStyle: true,
                   filter: function(item) { return item.text !== 'Lower Band'; }
                 }
@@ -460,11 +460,21 @@ function initializeCharts() {
             scales: {
               y: {
                 beginAtZero: true,
-                ticks: { color: '#b3b3b3', font: { size: 10 } },
+                ticks: { 
+                  color: '#b3b3b3', 
+                  font: { size: 11 },
+                  maxTicksLimit: 5
+                },
                 grid: { color: '#292929' }
               },
               x: {
-                ticks: { color: '#b3b3b3', font: { size: 10 }, maxRotation: 45, minRotation: 45 },
+                ticks: { 
+                  color: '#b3b3b3', 
+                  font: { size: 11 },
+                  maxRotation: 45, 
+                  minRotation: 45,
+                  maxTicksLimit: 8
+                },
                 grid: { color: '#292929' }
               }
             }
@@ -536,7 +546,7 @@ function initializeCharts() {
             labels: {
               color: '#b3b3b3',
               padding: 8,
-              font: { size: 8 },
+              font: { size: 11 },
               usePointStyle: true
             }
           },
@@ -554,11 +564,19 @@ function initializeCharts() {
         scales: {
           y: {
             beginAtZero: true,
-            ticks: { color: '#b3b3b3', font: { size: 10 } },
+            ticks: { 
+              color: '#b3b3b3', 
+              font: { size: 11 },
+              maxTicksLimit: 5
+            },
             grid: { color: '#292929' }
           },
           x: {
-            ticks: { color: '#b3b3b3', font: { size: 10 } },
+            ticks: { 
+              color: '#b3b3b3', 
+              font: { size: 11 },
+              maxTicksLimit: 5
+            },
             grid: { color: '#292929' }
           }
         }
@@ -620,7 +638,7 @@ function initializeCharts() {
             max: 100,
             ticks: {
               color: '#b3b3b3',
-              font: { size: 8 },
+              font: { size: 11 },
               callback: function(value) { return value + '%'; }
             },
             grid: { color: '#292929' }
