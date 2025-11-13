@@ -690,6 +690,11 @@ p {
     flex-shrink: 0;
   }
 
+  .cover-name {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    letter-spacing: 0.1em;
+  }
+
   .section-content {
     opacity: 1 !important;
     transform: none !important;
