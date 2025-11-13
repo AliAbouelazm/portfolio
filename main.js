@@ -428,7 +428,7 @@ function initializeCharts() {
                 position: 'bottom',
                 labels: {
                   color: '#b3b3b3',
-                  padding: 8,
+                  padding: 6,
                   font: { size: 11 },
                   usePointStyle: true,
                   filter: function(item) { return item.text !== 'Lower Band'; }
