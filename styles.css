@@ -535,6 +535,12 @@ p {
   border: 1px solid var(--border);
   border-radius: 6px;
   background: rgba(11, 11, 11, 0.5);
+  transition: border-color 200ms ease, transform 200ms ease;
+}
+
+.chart-wrapper:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
 }
 
 .chart-wrapper h3 {
