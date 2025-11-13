@@ -528,13 +528,13 @@ p {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: 12px;
+  gap: 10px;
   margin-top: 20px;
-  height: 500px;
+  height: 400px;
 }
 
 .chart-box {
-  padding: 12px;
+  padding: 10px;
   border: 1px solid var(--border);
   border-radius: 6px;
   background: rgba(11, 11, 11, 0.5);
@@ -551,9 +551,9 @@ p {
 .chart-box h3 {
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   letter-spacing: 0.05em;
-  margin: 0 0 8px 0;
+  margin: 0 0 6px 0;
   color: var(--text-primary);
   flex-shrink: 0;
 }
