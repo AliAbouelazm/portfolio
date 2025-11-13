@@ -342,14 +342,16 @@ p {
 }
 
 .about-points {
+  display: grid;
   gap: 14px;
 }
 
-.about-points li {
+.about-points p {
   color: var(--text-primary);
   font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.6;
+  margin: 0;
 }
 
 .inline-actions {
@@ -376,13 +378,17 @@ p {
 }
 
 .skill-list {
-  list-style: disc;
   margin: 0;
-  padding-left: 20px;
+  padding: 0;
   display: grid;
   gap: 12px;
   color: var(--text-muted);
   font-size: 0.95rem;
+}
+
+.skill-list p {
+  margin: 0;
+  color: var(--text-muted);
 }
 
 .contact {
@@ -495,6 +501,10 @@ p {
     margin-top: 16px;
     padding-top: 12px;
   }
+
+  .resume-preview iframe {
+    min-height: 600px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -505,6 +515,46 @@ p {
   .about-photo {
     max-width: 380px;
   }
+}
+
+.resume-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.resume-preview iframe {
+  min-height: 800px;
+  width: 100%;
+}
+
+.resume-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.resume-download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.5rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background 200ms ease, border-color 200ms ease;
+}
+
+.resume-download-btn:hover,
+.resume-download-btn:focus-visible {
+  background: rgba(230, 230, 230, 0.1);
+  border-color: var(--accent);
+  text-decoration: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
