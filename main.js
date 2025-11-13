@@ -1,4 +1,19 @@
+// Ensure page starts at top
+window.addEventListener("load", () => {
+  window.scrollTo(0, 0);
+});
+
+// Also scroll to top on page load
+if (document.readyState === "loading") {
+  window.scrollTo(0, 0);
+} else {
+  window.scrollTo(0, 0);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  // Ensure page is at top
+  window.scrollTo(0, 0);
+  
   // Cover page typewriter and slide-up functionality
   const coverPage = document.getElementById("cover-page");
   const coverName = document.getElementById("cover-name");
