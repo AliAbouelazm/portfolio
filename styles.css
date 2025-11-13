@@ -207,6 +207,11 @@ main {
   transform: translateY(0);
 }
 
+/* Projects section - ensure it's always visible and detectable for IntersectionObserver */
+#projects {
+  filter: none !important;
+}
+
 @media (min-width: 768px) {
   .section {
     transition: opacity 200ms ease, filter 200ms ease;
@@ -224,11 +229,24 @@ main {
     pointer-events: auto;
   }
 
-  /* Projects section - always visible and detectable, only content fades */
+  /* Projects section - always visible and detectable, content fades in/out */
   #projects {
     filter: none !important;
     opacity: 1 !important;
     pointer-events: auto !important;
+  }
+
+  /* Projects content fades based on is-visible class */
+  #projects:not(.is-visible) .section-content {
+    opacity: 0 !important;
+    transform: translateY(18px) !important;
+    transition: opacity 240ms ease, transform 240ms ease !important;
+  }
+
+  #projects.is-visible .section-content {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: opacity 240ms ease, transform 240ms ease !important;
   }
 }
 
