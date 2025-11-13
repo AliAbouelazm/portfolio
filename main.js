@@ -435,39 +435,16 @@ function initializeCharts() {
             scales: {
               y: {
                 beginAtZero: true,
-                title: {
-                  display: true,
-                  text: 'Words Per Minute (WPM)',
-                  color: '#b3b3b3',
-                  font: {
-                    size: 12,
-                    weight: 'bold'
-                  }
-                },
                 ticks: {
-                  color: '#b3b3b3',
-                  callback: function(value) {
-                    return value.toFixed(0) + ' WPM';
-                  }
+                  color: '#b3b3b3'
                 },
                 grid: {
                   color: '#292929'
                 }
               },
               x: {
-                title: {
-                  display: true,
-                  text: 'Time',
-                  color: '#b3b3b3',
-                  font: {
-                    size: 12,
-                    weight: 'bold'
-                  }
-                },
                 ticks: {
-                  color: '#b3b3b3',
-                  maxRotation: 45,
-                  minRotation: 45
+                  color: '#b3b3b3'
                 },
                 grid: {
                   color: '#292929'
