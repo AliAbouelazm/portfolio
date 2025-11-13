@@ -553,7 +553,11 @@ p {
 }
 
 .chart-wrapper canvas {
-  max-height: 400px;
+  max-height: 250px;
+}
+
+.chart-wrapper:has(#typing-rhythm-chart) canvas {
+  max-height: 400px !important;
   height: 350px !important;
 }
 

@@ -291,6 +291,29 @@ function initializeCharts() {
         const upperBand = new Array(wpmValues.length).fill(mean + stdDev);
         const lowerBand = new Array(wpmValues.length).fill(mean - stdDev);
         
+        // Create gradient for WPM line with multiple colors
+        const ctx = typingRhythmCtx.getContext('2d');
+        const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+        gradient.addColorStop(0, '#9B59B6'); // Purple
+        gradient.addColorStop(0.3, '#50C878'); // Green
+        gradient.addColorStop(0.6, '#4A90E2'); // Blue
+        gradient.addColorStop(1, '#FF6B6B'); // Red
+        
+        // Create gradient for fill
+        const fillGradient = ctx.createLinearGradient(0, 0, 0, 400);
+        fillGradient.addColorStop(0, 'rgba(155, 89, 182, 0.2)'); // Purple
+        fillGradient.addColorStop(0.3, 'rgba(80, 200, 120, 0.2)'); // Green
+        fillGradient.addColorStop(0.6, 'rgba(74, 144, 226, 0.2)'); // Blue
+        fillGradient.addColorStop(1, 'rgba(255, 107, 107, 0.2)'); // Red
+        
+        // Color points based on WPM value (purple for low, green for medium, blue for high)
+        const pointColors = wpmValues.map(wpm => {
+          if (wpm < avgWPM - stdDev) return '#9B59B6'; // Purple for low
+          if (wpm < avgWPM) return '#50C878'; // Green for medium-low
+          if (wpm < avgWPM + stdDev) return '#4A90E2'; // Blue for medium-high
+          return '#FF6B6B'; // Red for high
+        });
+        
         chartInstances.typingRhythm = new Chart(typingRhythmCtx, {
           type: 'line',
           data: {
@@ -299,16 +322,16 @@ function initializeCharts() {
               {
                 label: 'WPM Over Time',
                 data: wpmValues,
-                borderColor: '#50C878', // Changed to green
-                backgroundColor: 'rgba(80, 200, 120, 0.15)',
+                borderColor: gradient,
+                backgroundColor: fillGradient,
                 borderWidth: 2.5,
                 fill: true,
                 tension: 0.4,
-                pointBackgroundColor: '#50C878',
+                pointBackgroundColor: pointColors,
                 pointBorderColor: '#0b0b0b',
                 pointBorderWidth: 2,
-                pointRadius: 3,
-                pointHoverRadius: 6,
+                pointRadius: 4,
+                pointHoverRadius: 7,
                 order: 3
               },
               {
@@ -336,8 +359,8 @@ function initializeCharts() {
               {
                 label: '±1 Std Dev',
                 data: upperBand,
-                borderColor: 'rgba(255, 107, 107, 0.3)',
-                backgroundColor: 'rgba(255, 107, 107, 0.1)',
+                borderColor: 'rgba(155, 89, 182, 0.4)',
+                backgroundColor: 'rgba(155, 89, 182, 0.1)',
                 borderWidth: 1,
                 borderDash: [2, 2],
                 fill: '+1',
@@ -347,8 +370,8 @@ function initializeCharts() {
               {
                 label: 'Lower Band',
                 data: lowerBand,
-                borderColor: 'rgba(255, 107, 107, 0.3)',
-                backgroundColor: 'rgba(255, 107, 107, 0.1)',
+                borderColor: 'rgba(155, 89, 182, 0.4)',
+                backgroundColor: 'rgba(155, 89, 182, 0.1)',
                 borderWidth: 1,
                 borderDash: [2, 2],
                 fill: false,
