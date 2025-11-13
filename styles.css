@@ -488,17 +488,37 @@ p {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(245, 245, 245, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
 }
 
 .contact-links a {
   text-decoration: none;
-  color: inherit;
-  transition: color 180ms ease;
+  color: #ffffff;
+  transition: color 180ms ease, opacity 180ms ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.8;
+}
+
+.contact-links a svg {
+  flex-shrink: 0;
+  opacity: 0.9;
 }
 
 .contact-links a:hover,
 .contact-links a:focus-visible {
   color: var(--accent);
+  opacity: 1;
+}
+
+.contact-links a:hover svg,
+.contact-links a:focus-visible svg {
+  opacity: 1;
 }
 
 
