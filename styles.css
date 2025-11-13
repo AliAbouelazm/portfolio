@@ -381,13 +381,13 @@ p {
   display: inline-flex;
   gap: 24px;
   margin-top: 20px;
-  font-size: 1.05rem;
-  font-weight: 600;
 }
 
 .inline-actions a {
   font-family: var(--font-heading);
-  font-weight: 700 !important;
+  font-weight: 600 !important;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
   color: var(--text-primary) !important;
   text-decoration: none !important;
   text-decoration-color: transparent !important;
@@ -612,7 +612,9 @@ p {
 
 .resume-download-btn {
   font-family: var(--font-heading);
-  font-weight: 700 !important;
+  font-weight: 600 !important;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
   color: var(--text-primary) !important;
   text-decoration: none !important;
   text-decoration-color: transparent !important;
@@ -622,7 +624,6 @@ p {
   display: inline-block;
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
-  font-size: 1.05rem;
 }
 
 .resume-download-btn::before {
