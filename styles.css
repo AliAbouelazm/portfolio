@@ -387,6 +387,7 @@ p {
 
 .inline-actions a {
   font-family: var(--font-heading);
+  font-weight: 700 !important;
   color: var(--text-primary) !important;
   text-decoration: none !important;
   text-decoration-color: transparent !important;
@@ -611,6 +612,7 @@ p {
 
 .resume-download-btn {
   font-family: var(--font-heading);
+  font-weight: 700 !important;
   color: var(--text-primary) !important;
   text-decoration: none !important;
   text-decoration-color: transparent !important;
@@ -621,7 +623,6 @@ p {
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
   font-size: 1.05rem;
-  font-weight: 600;
 }
 
 .resume-download-btn::before {
