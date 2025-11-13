@@ -336,20 +336,18 @@ function initializeCharts() {
         
         const ctx = typingRhythmCtx.getContext('2d');
         const gradient = ctx.createLinearGradient(0, 0, 0, 400);
-        gradient.addColorStop(0, '#9B59B6');
-        gradient.addColorStop(0.3, '#50C878');
-        gradient.addColorStop(0.6, '#4A90E2');
-        gradient.addColorStop(1, '#FF6B6B');
+        gradient.addColorStop(0, '#4A90E2');
+        gradient.addColorStop(0.5, '#50C878');
+        gradient.addColorStop(1, '#4A90E2');
         const fillGradient = ctx.createLinearGradient(0, 0, 0, 400);
-        fillGradient.addColorStop(0, 'rgba(155, 89, 182, 0.2)');
-        fillGradient.addColorStop(0.3, 'rgba(80, 200, 120, 0.2)');
-        fillGradient.addColorStop(0.6, 'rgba(74, 144, 226, 0.2)');
-        fillGradient.addColorStop(1, 'rgba(255, 107, 107, 0.2)');
+        fillGradient.addColorStop(0, 'rgba(74, 144, 226, 0.15)');
+        fillGradient.addColorStop(0.5, 'rgba(80, 200, 120, 0.15)');
+        fillGradient.addColorStop(1, 'rgba(74, 144, 226, 0.15)');
         const pointColors = wpmValues.map(wpm => {
-          if (wpm < avgWPM - stdDev) return '#9B59B6';
+          if (wpm < avgWPM - stdDev) return '#4A90E2';
           if (wpm < avgWPM) return '#50C878';
-          if (wpm < avgWPM + stdDev) return '#4A90E2';
-          return '#FF6B6B';
+          if (wpm < avgWPM + stdDev) return '#50C878';
+          return '#4A90E2';
         });
         
         chartInstances.typingRhythm = new Chart(typingRhythmCtx, {
