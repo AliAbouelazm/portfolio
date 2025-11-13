@@ -375,10 +375,9 @@ function initializeCharts() {
             callbacks: {
               label: function(context) {
                 const label = context.label || '';
-                const value = context.parsed || 0;
-                const total = context.dataset.data.reduce((a, b) => a + b, 0);
-                const percentage = ((value / total) * 100).toFixed(1);
-                return label + ': ' + value + ' hrs (' + percentage + '%)';
+                const percentage = context.parsed || 0;
+                const hours = (percentage * 24 / 100).toFixed(1);
+                return label + ': ' + hours + ' hrs (' + percentage.toFixed(1) + '%)';
               }
             }
           }
