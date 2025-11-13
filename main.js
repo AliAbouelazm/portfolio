@@ -312,13 +312,68 @@ function updateChartColors(theme) {
   // Update existing charts
   Object.values(chartInstances).forEach(chart => {
     if (chart) {
-      chart.options.scales.x.ticks.color = Chart.defaults.color;
-      chart.options.scales.y.ticks.color = Chart.defaults.color;
-      chart.options.scales.x.grid.color = Chart.defaults.borderColor;
-      chart.options.scales.y.grid.color = Chart.defaults.borderColor;
-      if (chart.options.plugins.legend) {
+      if (chart.options.scales) {
+        if (chart.options.scales.x) {
+          chart.options.scales.x.ticks.color = Chart.defaults.color;
+          chart.options.scales.x.grid.color = Chart.defaults.borderColor;
+        }
+        if (chart.options.scales.y) {
+          chart.options.scales.y.ticks.color = Chart.defaults.color;
+          chart.options.scales.y.grid.color = Chart.defaults.borderColor;
+        }
+      }
+      if (chart.options.plugins && chart.options.plugins.legend && chart.options.plugins.legend.labels) {
         chart.options.plugins.legend.labels.color = Chart.defaults.color;
       }
+      
+      // Update chart data colors for light mode
+      if (theme === 'light') {
+        if (chartInstances.productivity === chart) {
+          chart.data.datasets[0].backgroundColor = ['#4A90E2', '#50C878', '#FF6B6B', '#FFA500', '#9B59B6', '#F39C12', '#E74C3C'];
+          chart.data.datasets[0].borderColor = '#2a2a2a';
+        }
+        if (chartInstances.routine === chart) {
+          chart.data.datasets[0].backgroundColor = ['#4A90E2', '#50C878', '#FF6B6B', '#FFA500', '#9B59B6', '#F39C12'];
+          chart.data.datasets[0].borderColor = '#f5f0e8';
+        }
+        if (chartInstances.learning === chart) {
+          chart.data.datasets[0].borderColor = '#4A90E2';
+          chart.data.datasets[0].backgroundColor = 'rgba(74, 144, 226, 0.2)';
+          chart.data.datasets[0].pointBackgroundColor = '#4A90E2';
+          chart.data.datasets[0].pointBorderColor = '#f5f0e8';
+        }
+        if (chartInstances.techstack === chart) {
+          chart.data.datasets[0].backgroundColor = ['#4A90E2', '#50C878', '#FF6B6B', '#FFA500', '#9B59B6', '#F39C12'];
+          chart.data.datasets[0].borderColor = '#2a2a2a';
+        }
+      } else {
+        if (chartInstances.productivity === chart) {
+          chart.data.datasets[0].backgroundColor = 'rgba(230, 230, 230, 0.6)';
+          chart.data.datasets[0].borderColor = '#e6e6e6';
+        }
+        if (chartInstances.routine === chart) {
+          chart.data.datasets[0].backgroundColor = [
+            'rgba(230, 230, 230, 0.8)',
+            'rgba(230, 230, 230, 0.6)',
+            'rgba(230, 230, 230, 0.5)',
+            'rgba(230, 230, 230, 0.4)',
+            'rgba(230, 230, 230, 0.3)',
+            'rgba(230, 230, 230, 0.2)'
+          ];
+          chart.data.datasets[0].borderColor = '#0b0b0b';
+        }
+        if (chartInstances.learning === chart) {
+          chart.data.datasets[0].borderColor = '#e6e6e6';
+          chart.data.datasets[0].backgroundColor = 'rgba(230, 230, 230, 0.1)';
+          chart.data.datasets[0].pointBackgroundColor = '#e6e6e6';
+          chart.data.datasets[0].pointBorderColor = '#0b0b0b';
+        }
+        if (chartInstances.techstack === chart) {
+          chart.data.datasets[0].backgroundColor = 'rgba(230, 230, 230, 0.6)';
+          chart.data.datasets[0].borderColor = '#e6e6e6';
+        }
+      }
+      
       chart.update('none'); // Update without animation for smooth transition
     }
   });
