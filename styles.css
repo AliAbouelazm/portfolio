@@ -9,17 +9,6 @@
   --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   --font-heading: "Publico Headline Web", "Publico", "Georgia", serif;
   scroll-behavior: smooth;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-:root[data-theme="light"] {
-  color-scheme: light;
-  --bg-page: #f5f0e8;
-  --text-primary: #1a1a1a;
-  --text-muted: #4a4a4a;
-  --border: #d4c9b8;
-  --border-strong: #c4b8a5;
-  --accent: #2a2a2a;
 }
 
 @font-face {
@@ -52,7 +41,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   display: flex;
   flex-direction: column;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Cover Page */
@@ -69,10 +57,6 @@ body {
   justify-content: center;
   transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
   cursor: pointer;
-}
-
-:root[data-theme="light"] .cover-page {
-  background: #f5f0e8;
 }
 
 .cover-page.hidden {
@@ -99,11 +83,6 @@ body {
   margin: 0;
   text-align: center;
   position: relative;
-  transition: color 0.3s ease;
-}
-
-:root[data-theme="light"] .cover-name {
-  color: #1a1a1a;
 }
 
 .cover-name::after {
@@ -145,22 +124,12 @@ body {
   text-transform: lowercase;
   color: #ffffff;
   margin: 0;
-  transition: color 0.3s ease;
-}
-
-:root[data-theme="light"] .cover-arrow-text {
-  color: #1a1a1a;
 }
 
 .cover-arrow {
   color: #ffffff;
   width: 24px;
   height: 24px;
-  transition: color 0.3s ease;
-}
-
-:root[data-theme="light"] .cover-arrow {
-  color: #1a1a1a;
 }
 
 @keyframes bounce {
@@ -222,63 +191,6 @@ a:focus-visible {
   background: rgba(11, 11, 11, 0.88);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-:root[data-theme="light"] .site-header {
-  background: rgba(245, 240, 232, 0.88);
-}
-
-.theme-toggle {
-  background: transparent;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 8px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: border-color 0.2s ease, transform 0.2s ease;
-  margin-right: 16px;
-  color: var(--text-primary);
-  position: relative;
-  width: 36px;
-  height: 36px;
-}
-
-.theme-toggle:hover {
-  border-color: var(--accent);
-  transform: scale(1.05);
-}
-
-.theme-toggle:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
-
-.theme-icon {
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  position: absolute;
-}
-
-.sun-icon {
-  opacity: 0;
-  transform: rotate(90deg);
-}
-
-.moon-icon {
-  opacity: 1;
-  transform: rotate(0deg);
-}
-
-:root[data-theme="light"] .sun-icon {
-  opacity: 1;
-  transform: rotate(0deg);
-}
-
-:root[data-theme="light"] .moon-icon {
-  opacity: 0;
-  transform: rotate(-90deg);
 }
 
 .brand {
@@ -809,11 +721,6 @@ p {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-:root[data-theme="light"] .site-footer {
-  background: rgba(245, 240, 232, 0.8);
 }
 
 .site-footer small {
@@ -834,11 +741,6 @@ p {
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-  }
-
-  .theme-toggle {
-    margin-right: 8px;
-    padding: 6px;
   }
 
   .brand {
