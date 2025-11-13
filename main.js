@@ -395,7 +395,7 @@ function initializeCharts() {
         labels: ['2022', '2023', '2024', '2025'],
         datasets: [{
           label: 'Courses/Certifications',
-          data: [2, 5, 8, 12],
+          data: [0, 1, 8, 10],
           borderColor: '#4A90E2',
           backgroundColor: 'rgba(74, 144, 226, 0.2)',
           borderWidth: 2,
