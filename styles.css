@@ -983,9 +983,6 @@ p {
   .chart-box {
     grid-column: 1 !important;
     grid-row: auto !important;
-  }
-
-  .chart-box {
     padding: 16px;
     min-height: 300px;
     opacity: 0;
