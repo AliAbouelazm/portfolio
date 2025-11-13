@@ -1,57 +1,61 @@
 # Ali Abouelazm — Portfolio
 
-Single-page personal website for Ali Abouelazm, undergraduate data scientist focused on applied ML, analytics, and sports technology.
+Personal portfolio website showcasing data engineering, machine learning, and analytics projects.
+
+## About
+
+Junior Data Engineer building end-to-end data ecosystems: sourcing, cleansing, modeling, and delivering insights that accelerate experimentation and product decisions. Combining software engineering, statistics, and ML/AI to transform datasets into production-ready products including feature stores, experimentation platforms, forecasting services, and data applications.
+
+Currently based in Sugar Land, TX. Open to internships in Data Science and ML/AI.
+
+## Technical Skills
+
+**Languages:** Python, R, SQL, Java, JavaScript, TypeScript, C/C++, HTML/CSS
+
+**AI/ML:** scikit-learn, XGBoost, CatBoost, LightGBM, TensorFlow, PyTorch, Keras, Transformers
+
+**Data/Viz:** pandas, NumPy, SciPy, Dask, GeoPandas, Statsmodels, Matplotlib, Seaborn, Plotly, Tableau
+
+## Projects
+
+- **Stockly** — Production-quality stock market prediction and backtesting system with SQLite-based data storage, comprehensive feature engineering, and multiple ML models (LSTM/GRU, Logistic Regression, Random Forest)
+- **PL Predictor** — English Premier League match outcome predictor using XGBoost with web scraping for real-time data updates
+- **Localytics** — Market segmentation and geospatial analytics project combining demographic and behavioral data analysis with clustering algorithms and Tableau dashboards
+- **clinix.ai** — Medical triage and symptom-to-risk assessment system using LLM semantic interpretation and classical ML models with FastAPI backend and Streamlit dashboard
 
 ## Tech Stack
 
-- HTML5  
-- CSS3 (no preprocessors)  
-- Vanilla JavaScript (no frameworks)  
+- HTML5
+- CSS3 (no preprocessors)
+- Vanilla JavaScript (no frameworks)
 
 ## Project Structure
 
-- `index.html` — semantic markup for all portfolio sections
-- `styles.css` — global theme, layout, motion, and accessibility styles
-- `main.js` — smooth navigation, scrollspy, and keyboard shortcuts
-- `resume/Ali_Abouelazm_Resume.pdf` — résumé download target (placeholder path)
-- `fonts/PublicoHeadlineWeb-Bold.woff2` — heading font (supply licensed file or adjust font stack)
+- `index.html` — Semantic markup for all portfolio sections
+- `styles.css` — Global theme, layout, motion, and accessibility styles
+- `main.js` — Smooth navigation, scrollspy, and keyboard shortcuts
+- `Ali_Abouelazm_Resume.pdf` — Resume download
+- `fonts/PublicoHeadlineWeb-Bold.woff2` — Heading font
 
 ## Local Development
 
-No build step is required. Open `index.html` directly in your browser, or serve the folder with any static server, for example:
+No build step required. Open `index.html` directly in your browser, or serve the folder with any static server:
 
 ```bash
 npx serve .
 ```
 
-> **Font note:** Publico Headline Web is a licensed typeface. Place your licensed `PublicoHeadlineWeb-Bold.woff2` file in the `fonts/` directory (or update `styles.css` to reference a different heading font).
-
 ## Deployment
 
-### GitHub Pages
-
-1. Push the repository to GitHub (e.g., `main` branch).
-2. In the GitHub repository, navigate to **Settings → Pages**.
-3. Under **Build and deployment**, choose **Deploy from a branch**.
-4. Select the branch (`main`) and the `/root` folder, then click **Save**.
-5. Wait for GitHub Pages to build; your site will be live at `https://<username>.github.io/<repo>/`.
-
-### Netlify
-
-1. Create a Netlify account (or sign in).
-2. Click **Add new site → Import an existing project**.
-3. Connect the GitHub repository containing this project.
-4. For build settings, choose **Build command: _None_** and **Publish directory: /**.
-5. Deploy the site. Netlify will provide a live URL, which you can customize under **Site settings → Domain management**.
+Deployed via GitHub Pages at [aliabouelazm.com](https://aliabouelazm.com)
 
 ## Accessibility & Keyboard Shortcuts
 
-- Skip-to-content link (`Tab` from top of page)
-- Number keys `1-6` jump to corresponding sections
-- `ArrowLeft` / `ArrowRight` navigate between sections
-- `ArrowUp` / `ArrowDown` scroll within the current section
+- Skip-to-content link (Tab from top of page)
+- Number keys 1-6 jump to corresponding sections
+- ArrowLeft / ArrowRight navigate between sections
+- ArrowUp / ArrowDown scroll within the current section
 
 ## License
 
-MIT License. See `LICENSE` if provided.*** End Patch
-
+MIT License
