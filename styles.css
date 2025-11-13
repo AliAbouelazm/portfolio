@@ -278,6 +278,10 @@ main {
   background: var(--bg-page);
 }
 
+#about {
+  padding-top: 100px;
+}
+
 .section:last-of-type {
   min-height: auto;
   padding: 200px 24px 60px;
