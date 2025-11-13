@@ -243,25 +243,10 @@ function initializeLifeStats() {
 }
 
 async function fetchGitHubStats() {
-  try {
-    const response = await fetch('https://api.github.com/users/AliAbouelazm');
-    if (response.ok) {
-      const data = await response.json();
-      // Calculate approximate commits (GitHub API doesn't provide this directly)
-      // We'll use public repos as a proxy
-      const commitsElement = document.getElementById('github-commits');
-      if (commitsElement) {
-        // Estimate: average 50-100 commits per repo
-        const estimatedCommits = data.public_repos * 75;
-        commitsElement.textContent = estimatedCommits.toLocaleString() + '+';
-      }
-    }
-  } catch (error) {
-    console.log('GitHub API fetch failed, using default values');
-    const commitsElement = document.getElementById('github-commits');
-    if (commitsElement) {
-      commitsElement.textContent = '500+';
-    }
+  // Set to 200+ as requested
+  const commitsElement = document.getElementById('github-commits');
+  if (commitsElement) {
+    commitsElement.textContent = '200+';
   }
 }
 
@@ -374,7 +359,7 @@ function initializeCharts() {
           },
           options: {
             responsive: true,
-            maintainAspectRatio: true,
+            maintainAspectRatio: false,
             interaction: {
               mode: 'index',
               intersect: false

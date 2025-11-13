@@ -553,7 +553,8 @@ p {
 }
 
 .chart-wrapper canvas {
-  max-height: 250px;
+  max-height: 400px;
+  height: 350px !important;
 }
 
 .about-meta {
