@@ -323,12 +323,13 @@ function initializeCharts() {
     new Chart(routineCtx, {
       type: 'doughnut',
       data: {
-        labels: ['Sleep', 'Coding/Work', 'Studying', 'Exercise', 'Social/Other'],
+        labels: ['Sleep', 'Coding/Work', 'Studying', 'Food', 'Exercise', 'Social/Other'],
         datasets: [{
-          data: [29, 30, 25, 6, 10],
+          data: [29, 20, 20, 8, 6, 17],
           backgroundColor: [
             'rgba(230, 230, 230, 0.8)',
             'rgba(230, 230, 230, 0.6)',
+            'rgba(230, 230, 230, 0.5)',
             'rgba(230, 230, 230, 0.4)',
             'rgba(230, 230, 230, 0.3)',
             'rgba(230, 230, 230, 0.2)'
