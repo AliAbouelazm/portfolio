@@ -481,7 +481,7 @@ p {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 24px;
-  margin-bottom: 48px;
+  margin-bottom: 10px;
 }
 
 .stat-card {
