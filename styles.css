@@ -224,13 +224,11 @@ main {
     pointer-events: auto;
   }
 
-  /* Projects section - only prevent blur, everything else works like other sections */
-  #projects:not(.is-visible) {
+  /* Projects section - always visible and detectable, only content fades */
+  #projects {
     filter: none !important;
-  }
-
-  #projects.is-visible {
-    filter: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
   }
 }
 
