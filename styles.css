@@ -32,7 +32,8 @@ body {
 
 body {
   margin: 0;
-  font-family: "Monaco", "Menlo", "Courier New", monospace;
+  font-family: "JetBrains Mono", "Monaco", "Menlo", "Courier New", monospace;
+  font-weight: 700;
   font-size: 1rem;
   line-height: 1.6;
   color: var(--text-primary);
