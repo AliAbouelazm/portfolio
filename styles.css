@@ -207,9 +207,15 @@ main {
   transform: translateY(0);
 }
 
+#projects {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
 #projects .section-content {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
 }
 
 @media (min-width: 768px) {
