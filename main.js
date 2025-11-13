@@ -274,66 +274,117 @@ function initializeCharts() {
   Chart.defaults.borderColor = '#292929';
   Chart.defaults.backgroundColor = 'rgba(230, 230, 230, 0.1)';
 
-  // Productivity by Day Chart
-  const productivityCtx = document.getElementById('productivity-chart');
-  if (productivityCtx) {
-    chartInstances.productivity = new Chart(productivityCtx, {
-      type: 'bar',
-      data: {
-        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-        datasets: [{
-          label: 'Coding Hours',
-          data: [4, 5, 4, 5, 4, 2, 1],
-          backgroundColor: [
-            'rgba(74, 144, 226, 0.7)',
-            'rgba(80, 200, 120, 0.7)',
-            'rgba(255, 107, 107, 0.7)',
-            'rgba(255, 165, 0, 0.7)',
-            'rgba(155, 89, 182, 0.7)',
-            'rgba(243, 156, 18, 0.7)',
-            'rgba(231, 76, 60, 0.7)'
-          ],
-          borderColor: [
-            '#4A90E2',
-            '#50C878',
-            '#FF6B6B',
-            '#FFA500',
-            '#9B59B6',
-            '#F39C12',
-            '#E74C3C'
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: true,
-        plugins: {
-          legend: {
-            display: false
-          }
-        },
-        scales: {
-          y: {
-            beginAtZero: true,
-            ticks: {
-              color: '#b3b3b3'
-            },
-            grid: {
-              color: '#292929'
-            }
+  // Typing Rhythm Chart - Load from JSON
+  const typingRhythmCtx = document.getElementById('typing-rhythm-chart');
+  if (typingRhythmCtx) {
+    // Load typing stats
+    fetch('typing_stats.json')
+      .then(response => response.json())
+      .then(data => {
+        // Format WPM over time data
+        const wpmData = data.wpm_over_time || [];
+        const labels = wpmData.map(item => {
+          const date = new Date(item.timestamp);
+          return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+        });
+        const wpmValues = wpmData.map(item => item.wpm);
+        
+        chartInstances.typingRhythm = new Chart(typingRhythmCtx, {
+          type: 'line',
+          data: {
+            labels: labels,
+            datasets: [{
+              label: 'Words Per Minute',
+              data: wpmValues,
+              borderColor: '#4A90E2',
+              backgroundColor: 'rgba(74, 144, 226, 0.2)',
+              borderWidth: 2,
+              fill: true,
+              tension: 0.4,
+              pointBackgroundColor: '#4A90E2',
+              pointBorderColor: '#0b0b0b',
+              pointBorderWidth: 2,
+              pointRadius: 4,
+              pointHoverRadius: 6
+            }]
           },
-          x: {
-            ticks: {
-              color: '#b3b3b3'
+          options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+              legend: {
+                display: false
+              },
+              tooltip: {
+                callbacks: {
+                  label: function(context) {
+                    return 'WPM: ' + context.parsed.y.toFixed(1);
+                  }
+                }
+              }
             },
-            grid: {
-              color: '#292929'
+            scales: {
+              y: {
+                beginAtZero: true,
+                title: {
+                  display: true,
+                  text: 'Words Per Minute',
+                  color: '#b3b3b3'
+                },
+                ticks: {
+                  color: '#b3b3b3',
+                  callback: function(value) {
+                    return value + ' WPM';
+                  }
+                },
+                grid: {
+                  color: '#292929'
+                }
+              },
+              x: {
+                title: {
+                  display: true,
+                  text: 'Time',
+                  color: '#b3b3b3'
+                },
+                ticks: {
+                  color: '#b3b3b3',
+                  maxRotation: 45,
+                  minRotation: 45
+                },
+                grid: {
+                  color: '#292929'
+                }
+              }
             }
           }
-        }
-      }
-    });
+        });
+      })
+      .catch(error => {
+        console.error('Error loading typing stats:', error);
+        // Fallback: show empty chart with message
+        chartInstances.typingRhythm = new Chart(typingRhythmCtx, {
+          type: 'line',
+          data: {
+            labels: [],
+            datasets: [{
+              label: 'Words Per Minute',
+              data: [],
+              borderColor: '#4A90E2',
+              backgroundColor: 'rgba(74, 144, 226, 0.2)'
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+              legend: {
+                display: false
+              }
+            }
+          }
+        });
+      });
   }
 
   // Daily Routine Pie Chart
