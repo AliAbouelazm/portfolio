@@ -213,17 +213,6 @@ main {
 
 #projects .section-content {
   filter: none !important;
-  transition: opacity 240ms ease, transform 240ms ease !important;
-}
-
-#projects.is-visible .section-content {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
-
-#projects:not(.is-visible) .section-content {
-  opacity: 0 !important;
-  transform: translateY(18px) !important;
 }
 
 @media (min-width: 768px) {
@@ -243,31 +232,24 @@ main {
     pointer-events: auto;
   }
 
+  #projects {
+    transition: opacity 200ms ease !important;
+  }
+
   #projects:not(.is-visible) {
     filter: none !important;
-    opacity: 0;
-    pointer-events: none;
+    opacity: 0 !important;
+    pointer-events: none !important;
   }
 
   #projects.is-visible {
     filter: none !important;
-    opacity: 1;
-    pointer-events: auto;
+    opacity: 1 !important;
+    pointer-events: auto !important;
   }
 
   #projects .section-content {
     filter: none !important;
-    transition: opacity 240ms ease, transform 240ms ease !important;
-  }
-  
-  #projects.is-visible .section-content {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-  }
-  
-  #projects:not(.is-visible) .section-content {
-    opacity: 0 !important;
-    transform: translateY(18px) !important;
   }
 }
 
