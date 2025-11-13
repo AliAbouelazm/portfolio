@@ -235,6 +235,18 @@ main {
     opacity: 1;
     pointer-events: auto;
   }
+
+  #projects {
+    filter: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  #projects:not(.is-visible) {
+    filter: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
 }
 
 .section-title {
