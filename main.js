@@ -274,7 +274,7 @@ function initializeCharts() {
   Chart.defaults.borderColor = '#292929';
   Chart.defaults.backgroundColor = 'rgba(230, 230, 230, 0.1)';
 
-  // Typing Rhythm Chart - Load from JSON
+  // Typing Rhythm Chart - Enhanced Data Science Visualization
   const typingRhythmCtx = document.getElementById('typing-rhythm-chart');
   if (typingRhythmCtx) {
     // Load typing stats
@@ -289,36 +289,137 @@ function initializeCharts() {
         });
         const wpmValues = wpmData.map(item => item.wpm);
         
+        // Calculate statistics
+        const avgWPM = data.summary?.avg_wpm || (wpmValues.reduce((a, b) => a + b, 0) / wpmValues.length || 0);
+        const medianWPM = wpmValues.length > 0 ? [...wpmValues].sort((a, b) => a - b)[Math.floor(wpmValues.length / 2)] : 0;
+        const maxWPM = Math.max(...wpmValues, 0);
+        const minWPM = Math.min(...wpmValues, 0);
+        
+        // Create average and median lines (same length as data)
+        const avgLine = new Array(wpmValues.length).fill(avgWPM);
+        const medianLine = new Array(wpmValues.length).fill(medianWPM);
+        
+        // Calculate standard deviation for confidence bands
+        const mean = avgWPM;
+        const variance = wpmValues.reduce((sum, val) => sum + Math.pow(val - mean, 2), 0) / wpmValues.length;
+        const stdDev = Math.sqrt(variance);
+        const upperBand = new Array(wpmValues.length).fill(mean + stdDev);
+        const lowerBand = new Array(wpmValues.length).fill(mean - stdDev);
+        
         chartInstances.typingRhythm = new Chart(typingRhythmCtx, {
           type: 'line',
           data: {
             labels: labels,
-            datasets: [{
-              label: 'Words Per Minute',
-              data: wpmValues,
-              borderColor: '#4A90E2',
-              backgroundColor: 'rgba(74, 144, 226, 0.2)',
-              borderWidth: 2,
-              fill: true,
-              tension: 0.4,
-              pointBackgroundColor: '#4A90E2',
-              pointBorderColor: '#0b0b0b',
-              pointBorderWidth: 2,
-              pointRadius: 4,
-              pointHoverRadius: 6
-            }]
+            datasets: [
+              {
+                label: 'WPM Over Time',
+                data: wpmValues,
+                borderColor: '#50C878', // Changed to green
+                backgroundColor: 'rgba(80, 200, 120, 0.15)',
+                borderWidth: 2.5,
+                fill: true,
+                tension: 0.4,
+                pointBackgroundColor: '#50C878',
+                pointBorderColor: '#0b0b0b',
+                pointBorderWidth: 2,
+                pointRadius: 3,
+                pointHoverRadius: 6,
+                order: 3
+              },
+              {
+                label: 'Mean WPM',
+                data: avgLine,
+                borderColor: '#FF6B6B',
+                backgroundColor: 'transparent',
+                borderWidth: 2,
+                borderDash: [5, 5],
+                fill: false,
+                pointRadius: 0,
+                order: 2
+              },
+              {
+                label: 'Median WPM',
+                data: medianLine,
+                borderColor: '#FFA500',
+                backgroundColor: 'transparent',
+                borderWidth: 2,
+                borderDash: [3, 3],
+                fill: false,
+                pointRadius: 0,
+                order: 1
+              },
+              {
+                label: '±1 Std Dev',
+                data: upperBand,
+                borderColor: 'rgba(255, 107, 107, 0.3)',
+                backgroundColor: 'rgba(255, 107, 107, 0.1)',
+                borderWidth: 1,
+                borderDash: [2, 2],
+                fill: '+1',
+                pointRadius: 0,
+                order: 0
+              },
+              {
+                label: 'Lower Band',
+                data: lowerBand,
+                borderColor: 'rgba(255, 107, 107, 0.3)',
+                backgroundColor: 'rgba(255, 107, 107, 0.1)',
+                borderWidth: 1,
+                borderDash: [2, 2],
+                fill: false,
+                pointRadius: 0,
+                order: 0
+              }
+            ]
           },
           options: {
             responsive: true,
             maintainAspectRatio: true,
+            interaction: {
+              mode: 'index',
+              intersect: false
+            },
             plugins: {
               legend: {
-                display: false
+                display: true,
+                position: 'bottom',
+                labels: {
+                  color: '#b3b3b3',
+                  padding: 12,
+                  font: {
+                    size: 11
+                  },
+                  usePointStyle: true,
+                  filter: function(item, chart) {
+                    // Hide the lower band from legend (it's just for fill)
+                    return item.text !== 'Lower Band';
+                  }
+                }
               },
               tooltip: {
                 callbacks: {
                   label: function(context) {
-                    return 'WPM: ' + context.parsed.y.toFixed(1);
+                    const label = context.dataset.label || '';
+                    const value = context.parsed.y;
+                    if (label === 'WPM Over Time') {
+                      return 'WPM: ' + value.toFixed(1);
+                    } else if (label === 'Mean WPM') {
+                      return 'Mean: ' + value.toFixed(1) + ' WPM';
+                    } else if (label === 'Median WPM') {
+                      return 'Median: ' + value.toFixed(1) + ' WPM';
+                    } else if (label === '±1 Std Dev') {
+                      return 'Upper Bound: ' + value.toFixed(1) + ' WPM';
+                    }
+                    return label + ': ' + value.toFixed(1);
+                  },
+                  footer: function(tooltipItems) {
+                    const wpmItem = tooltipItems.find(item => item.datasetIndex === 0);
+                    if (wpmItem) {
+                      const wpm = wpmItem.parsed.y;
+                      const zScore = ((wpm - avgWPM) / stdDev).toFixed(2);
+                      return 'Z-score: ' + zScore + 'σ';
+                    }
+                    return '';
                   }
                 }
               }
@@ -328,13 +429,17 @@ function initializeCharts() {
                 beginAtZero: true,
                 title: {
                   display: true,
-                  text: 'Words Per Minute',
-                  color: '#b3b3b3'
+                  text: 'Words Per Minute (WPM)',
+                  color: '#b3b3b3',
+                  font: {
+                    size: 12,
+                    weight: 'bold'
+                  }
                 },
                 ticks: {
                   color: '#b3b3b3',
                   callback: function(value) {
-                    return value + ' WPM';
+                    return value.toFixed(0) + ' WPM';
                   }
                 },
                 grid: {
@@ -345,7 +450,11 @@ function initializeCharts() {
                 title: {
                   display: true,
                   text: 'Time',
-                  color: '#b3b3b3'
+                  color: '#b3b3b3',
+                  font: {
+                    size: 12,
+                    weight: 'bold'
+                  }
                 },
                 ticks: {
                   color: '#b3b3b3',
@@ -370,8 +479,8 @@ function initializeCharts() {
             datasets: [{
               label: 'Words Per Minute',
               data: [],
-              borderColor: '#4A90E2',
-              backgroundColor: 'rgba(74, 144, 226, 0.2)'
+              borderColor: '#50C878',
+              backgroundColor: 'rgba(80, 200, 120, 0.2)'
             }]
           },
           options: {
