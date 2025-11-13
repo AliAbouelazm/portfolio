@@ -207,6 +207,11 @@ main {
   transform: translateY(0);
 }
 
+#projects .section-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (min-width: 768px) {
   .section {
     transition: opacity 200ms ease, filter 200ms ease;
