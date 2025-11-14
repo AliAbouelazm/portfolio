@@ -278,7 +278,7 @@ function initializeCharts() {
             'rgba(255, 107, 107, 0.8)',
             'rgba(255, 165, 0, 0.8)',
             'rgba(155, 89, 182, 0.8)',
-            'rgba(52, 152, 219, 0.8)'
+            'rgba(255, 20, 147, 0.8)'
           ],
           borderColor: '#0b0b0b',
           borderWidth: 2
