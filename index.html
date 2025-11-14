@@ -36,10 +36,9 @@
           <li><a href="#about" data-hotkey="1" aria-current="true">About</a></li>
           <li><a href="#projects" data-hotkey="2">Projects</a></li>
           <li><a href="#experience" data-hotkey="3">Experience</a></li>
-          <li><a href="#leadership" data-hotkey="4">Leadership</a></li>
-          <li><a href="#skills" data-hotkey="5">Skills</a></li>
-          <li><a href="#resume" data-hotkey="6">Resume</a></li>
-          <li><a href="#life-in-data" data-hotkey="7">Life in Data</a></li>
+          <li><a href="#skills" data-hotkey="4">Skills</a></li>
+          <li><a href="#resume" data-hotkey="5">Resume</a></li>
+          <li><a href="#life-in-data" data-hotkey="6">Life in Data</a></li>
         </ul>
       </nav>
     </header>
@@ -126,80 +125,26 @@
       </section>
       <section id="experience" class="section" aria-labelledby="experience-heading" tabindex="-1">
         <div class="section-content">
-          <h1 id="experience-heading" class="section-title">Experience</h1>
-          <div class="stack">
-            <article class="stack-item">
-              <header>
-                <h2>Data Science Intern</h2>
-                <p class="meta">May 2025 – Aug 2025</p>
-              </header>
-              <ul class="item-description">
-                <li>Built AI-powered soccer highlight detection system integrating SportMonks API and Google Gemini for automated content analysis, achieving approximately 95% accuracy across 100+ hours of match footage</li>
-                <li>Developed computer vision pipeline to automatically identify key moments (goals, saves, tackles) using frame-by-frame analysis and temporal pattern recognition</li>
-                <li>Automated video alignment system that synchronizes match footage with event data by detecting kickoff and halftime markers, eliminating manual timestamp matching</li>
-                <li>Trained gradient-boosting models (XGBoost and CatBoost) for match outcome prediction using team form, head-to-head history, and player availability features</li>
-                <li>Engineered expected goals (xG) models and pass network visualizations to provide tactical insights for coaching staff and analysts</li>
-              </ul>
-            </article>
-            <article class="stack-item">
-              <header>
-                <h2>Student Tech — Center for Teaching Excellence</h2>
-                <p class="meta">Aug 2025 – Present</p>
-              </header>
-              <ul class="item-description">
-                <li>Architected and built comprehensive BI dashboards using AWS S3 for data storage, Athena for querying, and QuickSight for visualization to track teaching effectiveness and student engagement metrics across multiple departments</li>
-                <li>Designed data pipeline to aggregate course evaluation data, attendance records, and learning outcome assessments from disparate university systems</li>
-                <li>Processed large institutional datasets containing hundreds of thousands of student records using Python (pandas, NumPy) with optimized memory management and parallel processing techniques</li>
-                <li>Created interactive visualizations with Matplotlib and custom Python scripts to identify trends in teaching methods, student performance, and course satisfaction</li>
-                <li>Presented data-driven findings and recommendations to university leadership, including deans and department heads, to inform strategic decisions about curriculum development and faculty training programs</li>
-              </ul>
-            </article>
-            <article class="stack-item">
-              <header>
-                <h2>Peer Teacher — ENGR 102</h2>
-                <p class="meta">Aug 2025 – Present</p>
-              </header>
-              <ul class="item-description">
-                <li>Mentored first-year engineering students in Python programming fundamentals, covering control structures (loops, conditionals), function design, and core data structures (lists, dictionaries, tuples)</li>
-                <li>Facilitated hands-on learning in weekly lab sessions, helping students debug code, understand error messages, and develop problem-solving strategies</li>
-                <li>Developed supplementary learning materials and practice problems to reinforce core programming concepts and prepare students for assignments</li>
-                <li>Provided one-on-one tutoring sessions to support struggling students, adapting teaching methods to different learning styles</li>
-                <li>Graded assignments and provided detailed, constructive feedback on code quality, logic, and best practices to help students improve</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-      <section id="leadership" class="section" aria-labelledby="leadership-heading" tabindex="-1">
-        <div class="section-content">
-          <h1 id="leadership-heading" class="section-title">Leadership/Extracurricular</h1>
-          <div class="stack">
-            <article class="stack-item">
-              <header>
-                <h2>TAMU Datathon — Challenges Organizer</h2>
-                <p class="meta">Mar 2025 – Present</p>
-              </header>
-              <ul class="item-description">
-                <li>Designed and developed data science and web development challenges for 200+ participants, creating problem sets that test skills in Python, SQL, scikit-learn, and pandas</li>
-                <li>Created realistic datasets and problem scenarios that mirror real-world data science challenges, including messy data, missing values, and complex feature engineering requirements</li>
-                <li>Developed comprehensive evaluation rubrics and automated scoring systems to fairly assess participant submissions across multiple criteria</li>
-                <li>Provided live technical support and debugging assistance during the event, helping participants overcome coding obstacles and understand data science concepts</li>
-                <li>Conducted pre-event workshops and training sessions to prepare participants, covering topics like data cleaning, exploratory data analysis, and model selection</li>
-              </ul>
-            </article>
-            <article class="stack-item">
-              <header>
-                <h2>Student Engineers' Council — EnVision Conference Coordinator</h2>
-                <p class="meta">Dec 2024 – Present</p>
-              </header>
-              <ul class="item-description">
-                <li>Architected and developed custom registration system using Flask web framework and PostgreSQL database to handle conference attendee management, payment processing, and session scheduling</li>
-                <li>Designed database schema to track attendee information, session preferences, dietary restrictions, and accommodation needs for seamless event coordination</li>
-                <li>Implemented automated email notification system to send confirmations, reminders, and updates to 150+ conference participants</li>
-                <li>Oversaw comprehensive event logistics including venue coordination, catering arrangements, speaker scheduling, and technical setup requirements</li>
-                <li>Led a team of volunteers to execute day-of-event operations, including registration check-in, session monitoring, and attendee support</li>
-              </ul>
-            </article>
+          <h1 id="experience-heading" class="section-title">Experience & Leadership</h1>
+          <div class="experience-layout">
+            <div class="experience-list-container">
+              <button class="nav-arrow nav-arrow-up" id="arrow-up" aria-label="Previous">
+                <svg width="40" height="8" viewBox="0 0 40 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="35 7 20 1 5 7"></polyline>
+                </svg>
+              </button>
+              <div class="experience-list" id="experience-list"></div>
+              <button class="nav-arrow nav-arrow-down" id="arrow-down" aria-label="Next">
+                <svg width="40" height="8" viewBox="0 0 40 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="5 1 20 7 35 1"></polyline>
+                </svg>
+              </button>
+            </div>
+            <div class="experience-divider"></div>
+            <div class="experience-description" id="experience-description">
+              <h2 id="desc-title"></h2>
+              <ul class="desc-content" id="desc-content"></ul>
+            </div>
           </div>
         </div>
       </section>

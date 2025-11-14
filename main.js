@@ -232,8 +232,181 @@ document.addEventListener("DOMContentLoaded", () => {
   // Life Stats Dashboard
   initializeLifeStats();
 
+  // Experience & Leadership
+  initializeExperience();
+
 });
 
+
+// Experience & Leadership
+function initializeExperience() {
+  const items = [
+    {
+      company: 'Student Engineers\' Council',
+      role: 'EnVision Conference Coordinator',
+      date: 'Dec 2024 – Present',
+      description: [
+        'Architected and developed custom registration system using Flask web framework and PostgreSQL database to handle conference attendee management, payment processing, and session scheduling',
+        'Designed database schema to track attendee information, session preferences, dietary restrictions, and accommodation needs for seamless event coordination',
+        'Implemented automated email notification system to send confirmations, reminders, and updates to 150+ conference participants',
+        'Oversaw comprehensive event logistics including venue coordination, catering arrangements, speaker scheduling, and technical setup requirements',
+        'Led a team of volunteers to execute day-of-event operations, including registration check-in, session monitoring, and attendee support',
+        ''
+      ]
+    },
+    {
+      company: 'TAMU Datathon',
+      role: 'Challenges Organizer',
+      date: 'Mar 2025 – Present',
+      description: [
+        'Designed and developed data science and web development challenges for 200+ participants, creating problem sets that test skills in Python, SQL, scikit-learn, and pandas',
+        'Created realistic datasets and problem scenarios that mirror real-world data science challenges, including messy data, missing values, and complex feature engineering requirements',
+        'Developed comprehensive evaluation rubrics and automated scoring systems to fairly assess participant submissions across multiple criteria',
+        'Provided live technical support and debugging assistance during the event, helping participants overcome coding obstacles and understand data science concepts',
+        'Conducted pre-event workshops and training sessions to prepare participants, covering topics like data cleaning, exploratory data analysis, and model selection',
+        ''
+      ]
+    },
+    {
+      company: 'TCG Digital',
+      role: 'Data Science Intern',
+      date: 'May 2025 – Aug 2025',
+      description: [
+        'Built AI-powered soccer highlight detection system integrating SportMonks API and Google Gemini for automated content analysis, achieving approximately 95% accuracy across 100+ hours of match footage',
+        'Developed computer vision pipeline to automatically identify key moments (goals, saves, tackles) using frame-by-frame analysis and temporal pattern recognition',
+        'Automated video alignment system that synchronizes match footage with event data by detecting kickoff and halftime markers, eliminating manual timestamp matching',
+        'Trained gradient-boosting models (XGBoost and CatBoost) for match outcome prediction using team form, head-to-head history, and player availability features',
+        'Engineered expected goals (xG) models and pass network visualizations to provide tactical insights for coaching staff and analysts',
+        ''
+      ]
+    },
+    {
+      company: 'Texas A&M',
+      role: 'Student Tech',
+      date: 'Aug 2025 – Present',
+      description: [
+        'Architected and built comprehensive BI dashboards using AWS S3 for data storage, Athena for querying, and QuickSight for visualization to track teaching effectiveness and student engagement metrics across multiple departments',
+        'Designed data pipeline to aggregate course evaluation data, attendance records, and learning outcome assessments from disparate university systems',
+        'Processed large institutional datasets containing hundreds of thousands of student records using Python (pandas, NumPy) with optimized memory management and parallel processing techniques',
+        'Presented data-driven findings and recommendations to university leadership, including deans and department heads, to inform strategic decisions about curriculum development and faculty training programs',
+        '',
+        ''
+      ]
+    },
+    {
+      company: 'Texas A&M',
+      role: 'Peer Teacher',
+      date: 'Aug 2025 – Present',
+      description: [
+        'Mentored first-year engineering students in Python programming fundamentals, covering control structures (loops, conditionals), function design, and core data structures (lists, dictionaries, tuples)',
+        'Facilitated hands-on learning in weekly lab sessions, helping students debug code, understand error messages, and develop problem-solving strategies',
+        'Developed supplementary learning materials and practice problems to reinforce core programming concepts and prepare students for assignments',
+        'Provided one-on-one tutoring sessions to support struggling students, adapting teaching methods to different learning styles',
+        'Graded assignments and provided detailed, constructive feedback on code quality, logic, and best practices to help students improve',
+        ''
+      ]
+    }
+  ];
+
+  const listContainer = document.getElementById('experience-list');
+  const descContainer = document.getElementById('experience-description');
+  const arrowUp = document.getElementById('arrow-up');
+  const arrowDown = document.getElementById('arrow-down');
+  
+  if (!listContainer || !descContainer) return;
+
+  let currentIndex = 0;
+
+  // Create list items
+  items.forEach((item, index) => {
+    const listItem = document.createElement('div');
+    listItem.className = 'experience-item';
+    listItem.dataset.index = index;
+    
+    const company = document.createElement('h3');
+    company.textContent = item.company;
+    
+    const date = document.createElement('p');
+    date.className = 'experience-date';
+    date.textContent = item.date;
+    
+    listItem.appendChild(company);
+    listItem.appendChild(date);
+    
+    if (index === 0) {
+      listItem.classList.add('active');
+    } else {
+      listItem.classList.add('blurred');
+    }
+    
+    listContainer.appendChild(listItem);
+  });
+
+
+  // Update display
+  function updateDisplay() {
+    // Update list items
+    document.querySelectorAll('.experience-item').forEach((item, index) => {
+      if (index === currentIndex) {
+        item.classList.remove('blurred');
+        item.classList.add('active');
+      } else {
+        item.classList.remove('active');
+        item.classList.add('blurred');
+      }
+    });
+
+    // Fade out description
+    const descContainer = document.getElementById('experience-description');
+    descContainer.classList.add('fade-out');
+
+    // Update description after fade out
+    setTimeout(() => {
+      const currentItem = items[currentIndex];
+      document.getElementById('desc-title').textContent = currentItem.role;
+      
+      const descList = document.getElementById('desc-content');
+      descList.innerHTML = '';
+      currentItem.description.forEach(desc => {
+        if (desc.trim() !== '') {
+          const li = document.createElement('li');
+          li.textContent = desc;
+          descList.appendChild(li);
+        } else {
+          const li = document.createElement('li');
+          li.style.visibility = 'hidden';
+          li.textContent = 'placeholder';
+          descList.appendChild(li);
+        }
+      });
+
+      // Fade in description
+      descContainer.classList.remove('fade-out');
+    }, 200);
+
+    // Update arrow states
+    arrowUp.disabled = currentIndex === 0;
+    arrowDown.disabled = currentIndex === items.length - 1;
+  }
+
+  // Navigation
+  arrowUp.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateDisplay();
+    }
+  });
+
+  arrowDown.addEventListener('click', () => {
+    if (currentIndex < items.length - 1) {
+      currentIndex++;
+      updateDisplay();
+    }
+  });
+
+  // Initialize
+  updateDisplay();
+}
 
 // Life Stats Dashboard Functions
 function initializeLifeStats() {
