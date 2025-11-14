@@ -291,6 +291,10 @@ main {
   padding-top: 140px;
 }
 
+#life-in-data {
+  padding-bottom: 120px;
+}
+
 .section:focus,
 .section:focus-visible {
   outline: none;
@@ -881,6 +885,10 @@ p {
 
   #skills {
     padding-top: 100px;
+  }
+
+  #life-in-data {
+    padding-bottom: 80px;
   }
 
   main {
