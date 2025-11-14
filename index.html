@@ -34,11 +34,12 @@
       <nav aria-label="Primary">
         <ul class="tab-list">
           <li><a href="#about" data-hotkey="1" aria-current="true">About</a></li>
-          <li><a href="#experience" data-hotkey="2">Experience</a></li>
-          <li><a href="#projects" data-hotkey="3">Projects</a></li>
+          <li><a href="#projects" data-hotkey="2">Projects</a></li>
+          <li><a href="#experience" data-hotkey="3">Experience</a></li>
           <li><a href="#leadership" data-hotkey="4">Leadership</a></li>
           <li><a href="#skills" data-hotkey="5">Skills</a></li>
           <li><a href="#resume" data-hotkey="6">Resume</a></li>
+          <li><a href="#life-in-data" data-hotkey="7">Life in Data</a></li>
         </ul>
       </nav>
     </header>
@@ -64,56 +65,62 @@
               </ul>
             </div>
           </div>
-          <div class="life-stats">
-            <h2 class="stats-title">My Life in Data</h2>
-            <div class="stats-grid">
-              <div class="stat-card">
-                <h3>GitHub</h3>
-                <div class="stat-value" id="github-commits">Loading...</div>
-                <p class="stat-label">Total Commits</p>
+        </div>
+      </section>
+      <section id="projects" class="section" aria-labelledby="projects-heading" tabindex="-1">
+        <div class="section-content">
+          <h1 id="projects-heading" class="section-title">Projects</h1>
+          <div class="stack">
+            <article class="stack-item">
+              <header>
+                <h2>clinix.ai</h2>
+                <p class="meta">Python | pandas | NumPy | scikit-learn | SQLAlchemy | FastAPI | Streamlit | OpenAI/Anthropic | SQLite | matplotlib</p>
+              </header>
+              <p class="item-description">A medical triage and symptom-to-risk assessment system that combines LLM semantic interpretation with classical machine learning models for intelligent healthcare decision support. Accepts free-text symptom descriptions and uses OpenAI GPT and Anthropic Claude models to parse unstructured natural language into structured medical features including symptom severity, duration, associated symptoms, and patient demographics. The parsed features are fed into trained machine learning models (Logistic Regression and Random Forest) that compute risk scores and assign triage categories (low, medium, high, critical) based on clinical guidelines. Built with SQLAlchemy ORM for SQLite database management, storing patient records, symptom data, model predictions, and outcome tracking. Features a FastAPI backend with REST endpoints for symptom submission, risk assessment, and patient history retrieval. Includes a Streamlit dashboard with interactive triage visualization, real-time analytics on patient flow and risk distribution, model performance metrics, and administrative tools for healthcare providers. Demonstrates end-to-end ML/AI pipeline development with emphasis on interpretability and healthcare workflow integration.</p>
+              <div class="inline-actions">
+                <a href="https://github.com/AliAbouelazm/clinix.ai" target="_blank" rel="noopener">Code</a>
+                <a href="https://clinixai.streamlit.app/" target="_blank" rel="noopener">Demo</a>
               </div>
-              <div class="stat-card">
-                <h3>Projects</h3>
-                <div class="stat-value">6</div>
-                <p class="stat-label">Completed Projects</p>
+            </article>
+            <article class="stack-item">
+              <header>
+                <h2>PL Predictor</h2>
+                <p class="meta">Python | pandas | NumPy | scikit-learn | XGBoost | BeautifulSoup | Selenium | Streamlit</p>
+              </header>
+              <p class="item-description">An English Premier League match outcome predictor that classifies match results as Home Win, Draw, or Away Win using XGBoost. Demonstrates comprehensive data acquisition through both public historical datasets and web scraping techniques with BeautifulSoup and Selenium for real-time data updates. Implemented robust data cleaning and preprocessing pipelines to handle missing values, type conversions, and data standardization across multiple sources. Engineered features including rolling team performance metrics (goals scored/conceded, points per match), form-based features for home and away contexts, and difference features comparing team strengths. Trained an XGBoost classifier with time-based train/validation splits and comprehensive evaluation metrics. Includes explicit feature importance visualization and analysis, post-processing utilities for probability conversion and label mapping, and an interactive Streamlit demo app that allows users to predict match outcomes with real-time feature importance displays.</p>
+              <div class="inline-actions">
+                <a href="https://github.com/AliAbouelazm/pl_predictor" target="_blank" rel="noopener">Code</a>
+                <a href="https://pl-predict.streamlit.app/" target="_blank" rel="noopener">Demo</a>
               </div>
-              <div class="stat-card">
-                <h3>Technologies</h3>
-                <div class="stat-value">25+</div>
-                <p class="stat-label">Tools & Languages</p>
+            </article>
+            <article class="stack-item">
+              <header>
+                <h2>Localytics</h2>
+                <p class="meta">Python | R | SQL | scikit-learn | GeoPandas | Tableau</p>
+              </header>
+              <p class="item-description">A comprehensive market segmentation and geospatial analytics project combining demographic and behavioral data analysis. Applied clustering algorithms (K-means, hierarchical clustering) and regression models using scikit-learn to identify distinct customer segments and predict market trends. Leveraged GeoPandas for spatial analysis and geographic insights, processing geospatial datasets to uncover location-based patterns and correlations. Engineered features from demographic data including income levels, age distributions, and population density metrics. Built interactive dashboards in Tableau to visualize patterns, segment distributions, and geographic heatmaps, effectively communicating findings to stakeholders. Implemented data preprocessing pipelines to clean and standardize multi-source datasets, ensuring data quality and consistency across demographic and geographic dimensions.</p>
+            </article>
+            <article class="stack-item">
+              <header>
+                <h2>Stockly</h2>
+                <p class="meta">Python | pandas | NumPy | scikit-learn | TensorFlow/Keras | SQLite | matplotlib | Streamlit</p>
+              </header>
+              <p class="item-description">A production-quality stock market prediction and backtesting system with SQLite-based data storage, comprehensive feature engineering, and multiple ML models. Implements a complete pipeline from data acquisition (Alpha Vantage API and CSV ingestion) through SQL schema design for prices, features, targets, and predictions. Engineered technical indicators including RSI, MACD, moving averages, and volatility measures. Trained both baseline classical models (Logistic Regression, Random Forest) and deep learning sequence models (LSTM/GRU) for next-day direction classification and return prediction. Built time-series-aware backtesting with rolling window evaluation, performance metrics, and strategy comparison against buy-and-hold. Features a deliberately retro, blocky pixel-style visualizer in Streamlit with square markers, step plots, and a bold color palette for displaying price charts, prediction signals, and cumulative returns.</p>
+              <div class="inline-actions">
+                <a href="https://github.com/AliAbouelazm/stockly" target="_blank" rel="noopener">Code</a>
+                <a href="https://sstockly.streamlit.app/" target="_blank" rel="noopener">Demo</a>
               </div>
-              <div class="stat-card">
-                <h3>Experience</h3>
-                <div class="stat-value">2+</div>
-                <p class="stat-label">Years in Data Science</p>
+            </article>
+            <article class="stack-item">
+              <header>
+                <h2>SwimMatch</h2>
+                <p class="meta">HTML | CSS | Web Development | Business Operations | Marketing</p>
+              </header>
+              <p class="item-description">A private swim lesson platform connecting students with experienced instructors for personalized 1-on-1 coaching in backyard pools. Developed and maintained the SwimMatch website using HTML and CSS, improving user experience and reducing coach-student match time. Successfully coached 30+ students, leading to significant improvement in swimming skills and confidence. Generated $11,000 in monthly revenue within the first month of operation, showcasing strong business acumen and market demand. Implemented online booking and scheduling systems, increasing efficiency in managing coach-student sessions. Coordinated a team of swim coaches and created marketing campaigns through social media platforms, expanding the user base by 15% in the first two months.</p>
+              <div class="inline-actions">
+                <a href="https://swimmatch.org/" target="_blank" rel="noopener">Website</a>
               </div>
-            </div>
-            <div class="charts-container">
-              <div class="chart-box chart-1">
-                <h3>Daily Routine</h3>
-                <div class="chart-canvas-wrapper">
-                  <canvas id="routine-chart"></canvas>
-                </div>
-              </div>
-              <div class="chart-box chart-2">
-                <h3>Learning Progress</h3>
-                <div class="chart-canvas-wrapper">
-                  <canvas id="learning-chart"></canvas>
-                </div>
-              </div>
-              <div class="chart-box chart-3">
-                <h3>Tech Stack Usage</h3>
-                <div class="chart-canvas-wrapper">
-                  <canvas id="techstack-chart"></canvas>
-                </div>
-              </div>
-              <div class="chart-box chart-4">
-                <h3>My Typing Rhythm</h3>
-                <div class="chart-canvas-wrapper">
-                  <canvas id="typing-rhythm-chart"></canvas>
-                </div>
-              </div>
-            </div>
+            </article>
           </div>
         </div>
       </section>
@@ -320,6 +327,61 @@
             <iframe src="Ali_Abouelazm_Nov12.pdf" type="application/pdf" width="100%" height="800px" style="border: 1px solid var(--border); border-radius: 6px;"></iframe>
             <div class="resume-actions">
               <a href="Ali_Abouelazm_Nov12.pdf" download class="resume-download-btn">Download PDF</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="life-in-data" class="section" aria-labelledby="life-in-data-heading" tabindex="-1">
+        <div class="section-content">
+          <h1 id="life-in-data-heading" class="section-title">My Life in Data</h1>
+          <div class="life-stats">
+            <div class="stats-grid">
+              <div class="stat-card">
+                <h3>GitHub</h3>
+                <div class="stat-value" id="github-commits">Loading...</div>
+                <p class="stat-label">Total Commits</p>
+              </div>
+              <div class="stat-card">
+                <h3>Projects</h3>
+                <div class="stat-value">6</div>
+                <p class="stat-label">Completed Projects</p>
+              </div>
+              <div class="stat-card">
+                <h3>Technologies</h3>
+                <div class="stat-value">25+</div>
+                <p class="stat-label">Tools & Languages</p>
+              </div>
+              <div class="stat-card">
+                <h3>Experience</h3>
+                <div class="stat-value">2+</div>
+                <p class="stat-label">Years in Data Science</p>
+              </div>
+            </div>
+            <div class="charts-container">
+              <div class="chart-box chart-1">
+                <h3>Daily Routine</h3>
+                <div class="chart-canvas-wrapper">
+                  <canvas id="routine-chart"></canvas>
+                </div>
+              </div>
+              <div class="chart-box chart-2">
+                <h3>Learning Progress</h3>
+                <div class="chart-canvas-wrapper">
+                  <canvas id="learning-chart"></canvas>
+                </div>
+              </div>
+              <div class="chart-box chart-3">
+                <h3>Tech Stack Usage</h3>
+                <div class="chart-canvas-wrapper">
+                  <canvas id="techstack-chart"></canvas>
+                </div>
+              </div>
+              <div class="chart-box chart-4">
+                <h3>My Typing Rhythm</h3>
+                <div class="chart-canvas-wrapper">
+                  <canvas id="typing-rhythm-chart"></canvas>
+                </div>
+              </div>
             </div>
           </div>
         </div>
