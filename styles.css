@@ -439,6 +439,7 @@ p {
   margin: 0 0 16px;
 }
 
+
 .about-layout {
   display: grid;
   gap: 32px;
@@ -471,8 +472,6 @@ p {
 
 /* Life Stats Section */
 .life-stats {
-  margin-top: 48px;
-  padding-top: 48px;
   padding-bottom: 60px;
   border-top: 1px solid var(--border);
 }
@@ -946,8 +945,6 @@ p {
   }
 
   .life-stats {
-    margin-top: 32px;
-    padding-top: 32px;
     padding-bottom: 32px;
   }
 

@@ -231,7 +231,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Life Stats Dashboard
   initializeLifeStats();
+
 });
+
 
 // Life Stats Dashboard Functions
 function initializeLifeStats() {
