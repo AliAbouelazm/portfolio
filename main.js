@@ -288,6 +288,10 @@ function initializeCharts() {
         responsive: true,
         maintainAspectRatio: true,
         aspectRatio: 1.2,
+        interaction: {
+          intersect: true,
+          mode: 'point'
+        },
         plugins: {
           legend: {
             position: 'bottom',
@@ -422,6 +426,10 @@ function initializeCharts() {
             responsive: true,
             maintainAspectRatio: true,
             aspectRatio: 1.2,
+            interaction: {
+              intersect: false,
+              mode: 'nearest'
+            },
             plugins: {
               legend: {
                 display: true,
@@ -539,6 +547,10 @@ function initializeCharts() {
         responsive: true,
         maintainAspectRatio: true,
         aspectRatio: 1.2,
+        interaction: {
+          intersect: false,
+          mode: 'nearest'
+        },
         plugins: {
           legend: {
             display: true,
@@ -600,7 +612,7 @@ function initializeCharts() {
             'rgba(255, 107, 107, 0.7)',
             'rgba(255, 165, 0, 0.7)',
             'rgba(155, 89, 182, 0.7)',
-            'rgba(243, 156, 18, 0.7)'
+            'rgba(0, 206, 209, 0.7)'
           ],
           borderColor: [
             '#4A90E2',
@@ -608,7 +620,7 @@ function initializeCharts() {
             '#FF6B6B',
             '#FFA500',
             '#9B59B6',
-            '#F39C12'
+            '#00CED1'
           ],
           borderWidth: 1
         }]
@@ -618,6 +630,10 @@ function initializeCharts() {
         maintainAspectRatio: true,
         aspectRatio: 1.2,
         indexAxis: 'y',
+        interaction: {
+          intersect: true,
+          mode: 'index'
+        },
         plugins: {
           legend: {
             display: false
