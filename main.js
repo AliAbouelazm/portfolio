@@ -500,11 +500,14 @@ function initializeCharts() {
       .then(response => response.json())
       .then(data => {
         const wpmData = data.wpm_over_time || [];
-        const labels = wpmData.map(item => {
+        // Limit the number of points rendered to speed up load/render
+        const MAX_POINTS = 200;
+        const recentData = wpmData.slice(-MAX_POINTS);
+        const labels = recentData.map(item => {
           const date = new Date(item.timestamp);
           return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
         });
-        const wpmValues = wpmData.map(item => item.wpm);
+        const wpmValues = recentData.map(item => item.wpm);
         const avgWPM = data.summary?.avg_wpm || (wpmValues.length > 0 ? wpmValues.reduce((a, b) => a + b, 0) / wpmValues.length : 0);
         const medianWPM = wpmValues.length > 0 ? [...wpmValues].sort((a, b) => a - b)[Math.floor(wpmValues.length / 2)] : 0;
         const mean = avgWPM;
