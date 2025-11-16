@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-11-13T19:09:06.140593",
+  "last_updated": "2025-11-16T01:28:17.164",
   "total_keystrokes": 19348,
   "wpm_over_time": [
     {
@@ -423,6 +423,7 @@
   "summary": {
     "avg_wpm": 27.9,
     "total_bursts": 1155,
-    "avg_burst_length": 16.3
+    "avg_burst_length": 16.3,
+    "window_points": 26
   }
 }
