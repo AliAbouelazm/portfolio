@@ -259,11 +259,8 @@ function initializeExperience() {
       role: 'Challenges Organizer',
       date: 'Mar 2025 – Present',
       description: [
-        'Designed and developed data science and web development challenges for 200+ participants, creating problem sets that test skills in Python, SQL, scikit-learn, and pandas',
-        'Created realistic datasets and problem scenarios that mirror real-world data science challenges, including messy data, missing values, and complex feature engineering requirements',
-        'Developed comprehensive evaluation rubrics and automated scoring systems to fairly assess participant submissions across multiple criteria',
-        'Provided live technical support and debugging assistance during the event, helping participants overcome coding obstacles and understand data science concepts',
-        'Conducted pre-event workshops and training sessions to prepare participants, covering topics like data cleaning, exploratory data analysis, and model selection',
+        'Directed the creation of Data Science challenges for 500+ students, utilizing Python, SQL, and scikit-learn to develop approachable yet rigorous ML problem sets',
+        'Provided real-time technical guidance and debugging support for participants during large-scale competitive events, ensuring high-quality submission outcomes',
         ''
       ]
     },
@@ -272,37 +269,28 @@ function initializeExperience() {
       role: 'Data Science Intern',
       date: 'May 2025 – Aug 2025',
       description: [
-        'Built AI-powered soccer highlight detection system integrating SportMonks API and Google Gemini for automated content analysis, achieving approximately 95% accuracy across 100+ hours of match footage',
-        'Developed computer vision pipeline to automatically identify key moments (goals, saves, tackles) using frame-by-frame analysis and temporal pattern recognition',
-        'Automated video alignment system that synchronizes match footage with event data by detecting kickoff and halftime markers, eliminating manual timestamp matching',
-        'Trained gradient-boosting models (XGBoost and CatBoost) for match outcome prediction using team form, head-to-head history, and player availability features',
-        'Engineered expected goals (xG) models and pass network visualizations to provide tactical insights for coaching staff and analysts',
+        'Architected an end-to-end CV pipeline using Gemini Pro and OpenCV to automate soccer highlight extraction; achieved 95% precision across 100+ match hours and reduced manual processing time by 80%',
+        'Developed and tuned gradient-boosting models (XGBoost, CatBoost) on large-scale tracking data to predict match outcomes; utilized SHAP values to provide tactical insights into player performance and xG',
+        'Implemented automated video alignment modules for kickoff and halftime detection, reducing data latency and improving highlight accuracy for downstream analysts',
         ''
       ]
     },
     {
-      company: 'Texas A&M',
+      company: 'Texas A&M University, Center for Teaching Excellence',
       role: 'Student Tech',
-      date: 'Aug 2025 – Present',
+      date: 'Aug 2025 – Dec 2025',
       description: [
-        'Architected and built comprehensive BI dashboards using AWS S3 for data storage, Athena for querying, and QuickSight for visualization to track teaching effectiveness and student engagement metrics across multiple departments',
-        'Designed data pipeline to aggregate course evaluation data, attendance records, and learning outcome assessments from disparate university systems',
-        'Processed large institutional datasets containing hundreds of thousands of student records using Python (pandas, NumPy) with optimized memory management and parallel processing techniques',
-        'Presented data-driven findings and recommendations to university leadership, including deans and department heads, to inform strategic decisions about curriculum development and faculty training programs',
-        '',
+        'Engineered automated ETL pipelines using AWS S3, Athena, and Python to process institutional-scale datasets; reduced reporting latency for departmental leadership by 40%',
+        'Designed production-grade BI dashboards in QuickSight to visualize faculty engagement and student outcomes, directly informing strategic resource allocation for 15+ departments',
         ''
       ]
     },
     {
-      company: 'Texas A&M',
+      company: 'Texas A&M University, ENGR 102',
       role: 'Peer Teacher',
-      date: 'Aug 2025 – Present',
+      date: 'Aug 2025 – Dec 2025',
       description: [
-        'Mentored first-year engineering students in Python programming fundamentals, covering control structures (loops, conditionals), function design, and core data structures (lists, dictionaries, tuples)',
-        'Facilitated hands-on learning in weekly lab sessions, helping students debug code, understand error messages, and develop problem-solving strategies',
-        'Developed supplementary learning materials and practice problems to reinforce core programming concepts and prepare students for assignments',
-        'Provided one-on-one tutoring sessions to support struggling students, adapting teaching methods to different learning styles',
-        'Graded assignments and provided detailed, constructive feedback on code quality, logic, and best practices to help students improve',
+        'Mentored 100+ first-year engineering students in Python-based problem-solving, focusing on data structures, algorithmic logic, and collaborative debugging in weekly lab sessions',
         ''
       ]
     }
