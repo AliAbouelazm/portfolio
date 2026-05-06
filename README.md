@@ -1,29 +1,26 @@
-# Ali Abouelazm — Portfolio
+# Ali Abouelazm - Portfolio
 
-Personal portfolio website showcasing data engineering, machine learning, and analytics projects.
+Personal portfolio website at [aliabouelazm.com](https://aliabouelazm.com) showcasing ML engineering and applied AI projects.
 
 ## About
 
-Junior Data Engineer building end-to-end data ecosystems: sourcing, cleansing, modeling, and delivering insights that accelerate experimentation and product decisions. Combining software engineering, statistics, and ML/AI to transform datasets into production-ready products including feature stores, experimentation platforms, forecasting services, and data applications.
+ML engineer building real-time AI systems: agentic LLM assistants, biosensor prediction pipelines, and computer vision tools that ship to users.
 
-Currently based in Sugar Land, TX. Open to internships in Data Science and ML/AI.
+Currently doing ML research at Texas A&M AgriLife and joining Cloudflare's AEO team summer 2026. Seeking full-time ML/AI Engineer roles, available May 2027.
+
+## Featured Projects
+
+- **[Sonus](https://github.com/AliAbouelazm/sonus)**: Autonomous LLM assistant orchestrating 10+ real integrations (smart home, wearables, calendar, Spotify) via a tool-calling agent loop
+- **[clinix.ai](https://github.com/AliAbouelazm/clinix.ai)**: LLM-powered medical triage system achieving 0.92 F1-score on patient risk classification
+- **[Causal Marketing Impact](https://github.com/AliAbouelazm/Casual_Marketing_Impact)**: DoubleML app isolating true marketing ROI from confounders, Dockerized with GitHub Actions CI/CD
 
 ## Technical Skills
 
-**Languages:** Python, R, SQL, Java, JavaScript, TypeScript, C/C++, HTML/CSS
+**ML & AI:** PyTorch, TensorFlow, scikit-learn, XGBoost, OpenAI/Anthropic APIs, LLM tool-calling
+**Languages:** Python, SQL, C/C++, TypeScript, JavaScript, R
+**Data & Cloud:** AWS (S3, Athena), PostgreSQL, Docker, FastAPI, WebSockets
 
-**AI/ML:** scikit-learn, XGBoost, CatBoost, LightGBM, TensorFlow, PyTorch, Keras, Transformers
-
-**Data/Viz:** pandas, NumPy, SciPy, Dask, GeoPandas, Statsmodels, Matplotlib, Seaborn, Plotly, Tableau
-
-## Projects
-
-- **Stockly** — Production-quality stock market prediction and backtesting system with SQLite-based data storage, comprehensive feature engineering, and multiple ML models (LSTM/GRU, Logistic Regression, Random Forest)
-- **PL Predictor** — English Premier League match outcome predictor using XGBoost with web scraping for real-time data updates
-- **Localytics** — Market segmentation and geospatial analytics project combining demographic and behavioral data analysis with clustering algorithms and Tableau dashboards
-- **clinix.ai** — Medical triage and symptom-to-risk assessment system using LLM semantic interpretation and classical ML models with FastAPI backend and Streamlit dashboard
-
-## Tech Stack
+## Site Tech Stack
 
 - HTML5
 - CSS3 (no preprocessors)
@@ -31,11 +28,10 @@ Currently based in Sugar Land, TX. Open to internships in Data Science and ML/AI
 
 ## Project Structure
 
-- `index.html` — Semantic markup for all portfolio sections
-- `styles.css` — Global theme, layout, motion, and accessibility styles
-- `main.js` — Smooth navigation, scrollspy, and keyboard shortcuts
-- `Ali_Abouelazm_Resume.pdf` — Resume download
-- `fonts/PublicoHeadlineWeb-Bold.woff2` — Heading font
+- `index.html` - Semantic markup for all portfolio sections
+- `styles.css` - Global theme, layout, motion, and accessibility styles
+- `main.js` - Smooth navigation, scrollspy, and keyboard shortcuts
+- `ali_abouelazm_aiml (1).pdf` - Resume download
 
 ## Local Development
 
@@ -49,7 +45,7 @@ npx serve .
 
 Deployed via GitHub Pages at [aliabouelazm.com](https://aliabouelazm.com)
 
-## Accessibility & Keyboard Shortcuts
+## Accessibility and Keyboard Shortcuts
 
 - Skip-to-content link (Tab from top of page)
 - Number keys 1-6 jump to corresponding sections
