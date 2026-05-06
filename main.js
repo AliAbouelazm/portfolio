@@ -242,56 +242,50 @@ document.addEventListener("DOMContentLoaded", () => {
 function initializeExperience() {
   const items = [
     {
-      company: 'Student Engineers\' Council',
-      role: 'EnVision Conference Coordinator',
-      date: 'Dec 2024 – Present',
+      company: 'Cloudflare',
+      role: 'AI Discoverability & Optimization Intern',
+      date: 'May 2026 - Aug 2026',
       description: [
-        'Architected and developed custom registration system using Flask web framework and PostgreSQL database to handle conference attendee management, payment processing, and session scheduling',
-        'Designed database schema to track attendee information, session preferences, dietary restrictions, and accommodation needs for seamless event coordination',
-        'Implemented automated email notification system to send confirmations, reminders, and updates to 150+ conference participants',
-        'Oversaw comprehensive event logistics including venue coordination, catering arrangements, speaker scheduling, and technical setup requirements',
-        'Led a team of volunteers to execute day-of-event operations, including registration check-in, session monitoring, and attendee support',
-        ''
+        'Working on the AEO (AI Engine Optimization) team focused on how large language models index, retrieve, and surface web content at scale.',
+        'Building technical frameworks to improve AI-driven content discoverability across Cloudflare\'s global network.'
       ]
     },
     {
-      company: 'TAMU Datathon',
-      role: 'Challenges Organizer',
-      date: 'Mar 2025 – Present',
+      company: 'Texas A&M AgriLife',
+      role: 'Machine Learning Researcher',
+      date: 'Mar 2026 - Present',
       description: [
-        'Directed the creation of Data Science challenges for 500+ students, utilizing Python, SQL, and scikit-learn to develop approachable yet rigorous ML problem sets',
-        'Provided real-time technical guidance and debugging support for participants during large-scale competitive events, ensuring high-quality submission outcomes',
-        ''
+        'Building PyTorch-based predictive models on 50GB+ of livestock biosensor data to forecast animal health indicators across 3+ active research deployments.',
+        'Architecting scalable ML pipelines on AWS (S3, Athena) to ingest and process raw biological data streams, cutting preprocessing time by 35%.',
+        'Implementing automated feature engineering to extract health signals from noisy multi-sensor inputs, improving model training throughput and prediction reliability.'
       ]
     },
     {
-      company: 'TCG Digital',
+      company: 'TCG Digital Solutions',
       role: 'Data Science Intern',
-      date: 'May 2025 – Aug 2025',
+      date: 'May 2025 - Aug 2025',
       description: [
-        'Architected an end-to-end CV pipeline using Gemini Pro and OpenCV to automate soccer highlight extraction; achieved 95% precision across 100+ match hours and reduced manual processing time by 80%',
-        'Developed and tuned gradient-boosting models (XGBoost, CatBoost) on large-scale tracking data to predict match outcomes; utilized SHAP values to provide tactical insights into player performance and xG',
-        'Implemented automated video alignment modules for kickoff and halftime detection, reducing data latency and improving highlight accuracy for downstream analysts',
-        ''
+        'Architected an end-to-end CV pipeline using Gemini Pro and OpenCV to automate soccer highlight extraction, hitting 95% precision across 100+ match hours and reducing manual processing by 80%.',
+        'Developed and tuned XGBoost and CatBoost gradient-boosting models on 1M+ rows of player tracking data, using SHAP values to surface tactical insights to downstream athletic analysis teams.',
+        'Optimized real-time video inference via multi-threaded Python processing, cutting event extraction latency and enabling near-zero delay delivery of match-critical clips.'
       ]
     },
     {
-      company: 'Texas A&M University, Center for Teaching Excellence',
-      role: 'Student Tech',
-      date: 'Aug 2025 – Dec 2025',
+      company: 'Texas A&M University',
+      role: 'Undergraduate Teaching Assistant',
+      date: 'Aug 2025 - Dec 2025',
       description: [
-        'Engineered automated ETL pipelines using AWS S3, Athena, and Python to process institutional-scale datasets; reduced reporting latency for departmental leadership by 40%',
-        'Designed production-grade BI dashboards in QuickSight to visualize faculty engagement and student outcomes, directly informing strategic resource allocation for 15+ departments',
-        ''
+        'Mentored 100+ first-year engineering students across 15 weekly lab sessions in Python-based problem-solving, data structures, and algorithmic thinking.',
+        'Facilitated collaborative debugging and technical troubleshooting for complex programming assignments.'
       ]
     },
     {
-      company: 'Texas A&M University, ENGR 102',
-      role: 'Peer Teacher',
-      date: 'Aug 2025 – Dec 2025',
+      company: 'Lovable.dev | TAMU Datathon',
+      role: 'Campus Ambassador | Challenges Organizer',
+      date: 'Jan 2026 - Present',
       description: [
-        'Mentored 100+ first-year engineering students in Python-based problem-solving, focusing on data structures, algorithmic logic, and collaborative debugging in weekly lab sessions',
-        ''
+        'Hosted campus-wide AI platform workshops for 200+ engineering students as Lovable Campus Ambassador.',
+        'Directed ML problem set creation for 500+ competing students at TAMU Datathon using Python, SQL, and scikit-learn.'
       ]
     }
   ];
@@ -425,61 +419,6 @@ function initializeCharts() {
   Chart.defaults.color = '#b3b3b3';
   Chart.defaults.borderColor = '#292929';
   Chart.defaults.backgroundColor = 'rgba(230, 230, 230, 0.1)';
-
-  // Daily Routine Doughnut Chart
-  const routineCtx = document.getElementById('routine-chart');
-  if (routineCtx) {
-    chartInstances.routine = new Chart(routineCtx, {
-      type: 'doughnut',
-      data: {
-        labels: ['Sleep', 'Coding/Work', 'Studying', 'Food', 'Exercise', 'Social/Other'],
-        datasets: [{
-          data: [29, 20, 20, 8, 6, 17],
-          backgroundColor: [
-            'rgba(74, 144, 226, 0.8)',
-            'rgba(80, 200, 120, 0.8)',
-            'rgba(255, 107, 107, 0.8)',
-            'rgba(255, 165, 0, 0.8)',
-            'rgba(155, 89, 182, 0.8)',
-            'rgba(0, 206, 209, 0.8)'
-          ],
-          borderColor: '#0b0b0b',
-          borderWidth: 2
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: true,
-        aspectRatio: 1.2,
-        interaction: {
-          intersect: true,
-          mode: 'point'
-        },
-        plugins: {
-          legend: {
-            position: 'bottom',
-            labels: {
-              color: '#b3b3b3',
-              padding: 6,
-              font: { size: 11 },
-              usePointStyle: true,
-              boxWidth: 12
-            }
-          },
-          tooltip: {
-            callbacks: {
-              label: function(context) {
-                const label = context.label || '';
-                const percentage = context.parsed || 0;
-                const hours = (percentage * 24 / 100).toFixed(1);
-                return label + ': ' + hours + ' hrs (' + percentage.toFixed(1) + '%)';
-              }
-            }
-          }
-        }
-      }
-    });
-  }
 
   // Typing Rhythm Chart
   const typingRhythmCtx = document.getElementById('typing-rhythm-chart');
@@ -660,118 +599,16 @@ function initializeCharts() {
       });
   }
 
-  // Learning Progress Line Chart
-  const learningCtx = document.getElementById('learning-chart');
-  if (learningCtx) {
-    const x = [0, 1, 2, 3];
-    const y = [0, 1, 8, 10];
-    const n = x.length;
-    const sumX = x.reduce((a, b) => a + b, 0);
-    const sumY = y.reduce((a, b) => a + b, 0);
-    const sumXY = x.reduce((sum, xi, i) => sum + xi * y[i], 0);
-    const sumXX = x.reduce((sum, xi) => sum + xi * xi, 0);
-    const slope = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX);
-    const intercept = (sumY - slope * sumX) / n;
-    const predicted2026 = Math.round(slope * 4 + intercept);
-    
-    chartInstances.learning = new Chart(learningCtx, {
-      type: 'line',
-      data: {
-        labels: ['2022', '2023', '2024', '2025', '2026'],
-        datasets: [
-          {
-            label: 'Courses/Certifications',
-            data: [0, 1, 8, 10, null],
-            borderColor: '#4A90E2',
-            backgroundColor: 'rgba(74, 144, 226, 0.2)',
-            borderWidth: 2,
-            fill: true,
-            tension: 0.4,
-            pointBackgroundColor: '#4A90E2',
-            pointBorderColor: '#0b0b0b',
-            pointBorderWidth: 2,
-            pointRadius: 4,
-            spanGaps: false
-          },
-          {
-            label: 'Projected',
-            data: [null, null, null, 10, predicted2026],
-            borderColor: '#666666',
-            backgroundColor: 'rgba(102, 102, 102, 0.2)',
-            borderWidth: 2,
-            borderDash: [5, 5],
-            fill: true,
-            tension: 0.4,
-            pointBackgroundColor: '#666666',
-            pointBorderColor: '#0b0b0b',
-            pointBorderWidth: 2,
-            pointRadius: 4
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: true,
-        aspectRatio: 1.2,
-        interaction: {
-          intersect: false,
-          mode: 'nearest'
-        },
-        plugins: {
-          legend: {
-            display: true,
-            position: 'bottom',
-            labels: {
-              color: '#b3b3b3',
-              padding: 6,
-              font: { size: 11 },
-              usePointStyle: true
-            }
-          },
-          tooltip: {
-            callbacks: {
-              label: function(context) {
-                const label = context.dataset.label || '';
-                const value = context.parsed.y;
-                if (context.datasetIndex === 1) return label + ': ' + value + ' (projected)';
-                return label + ': ' + value;
-              }
-            }
-          }
-        },
-        scales: {
-          y: {
-            beginAtZero: true,
-            ticks: { 
-              color: '#b3b3b3', 
-              font: { size: 11 },
-              maxTicksLimit: 5
-            },
-            grid: { color: '#292929' }
-          },
-          x: {
-            ticks: { 
-              color: '#b3b3b3', 
-              font: { size: 11 },
-              maxTicksLimit: 5
-            },
-            grid: { color: '#292929' }
-          }
-        }
-      }
-    });
-  }
-
   // Tech Stack Usage Chart
   const techstackCtx = document.getElementById('techstack-chart');
   if (techstackCtx) {
     chartInstances.techstack = new Chart(techstackCtx, {
       type: 'bar',
       data: {
-        labels: ['Python', 'SQL', 'R', 'JavaScript', 'Java', 'C++'],
+        labels: ['Python', 'SQL', 'TypeScript', 'R', 'C++', 'JavaScript'],
         datasets: [{
           label: 'Usage Frequency',
-          data: [95, 80, 60, 50, 40, 30],
+          data: [98, 82, 65, 55, 45, 60],
           backgroundColor: [
             'rgba(74, 144, 226, 0.7)',
             'rgba(80, 200, 120, 0.7)',

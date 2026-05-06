@@ -10,9 +10,9 @@ Currently doing ML research at Texas A&M AgriLife and joining Cloudflare's AEO t
 
 ## Featured Projects
 
-- **[Sonus](https://github.com/AliAbouelazm/sonus)**: Autonomous LLM assistant orchestrating 10+ real integrations (smart home, wearables, calendar, Spotify) via a tool-calling agent loop
-- **[clinix.ai](https://github.com/AliAbouelazm/clinix.ai)**: LLM-powered medical triage system achieving 0.92 F1-score on patient risk classification
-- **[Causal Marketing Impact](https://github.com/AliAbouelazm/Casual_Marketing_Impact)**: DoubleML app isolating true marketing ROI from confounders, Dockerized with GitHub Actions CI/CD
+- **[Sonus](https://github.com/AliAbouelazm/sonus)**: Autonomous LLM assistant orchestrating 10+ real integrations via a tool-calling agent loop
+- **[Drift](https://github.com/AliAbouelazm/drift)**: Fine-tuned DistilBERT sentiment classifier with anomaly detection and SHAP explanations. Live at drift.aliabouelazm.com
+- **[Wavelength](https://github.com/AliAbouelazm/wavelength)**: Mood-based music recommendation engine trained on 89K Spotify tracks. Live at wavelength.aliabouelazm.com
 
 ## Technical Skills
 
@@ -31,7 +31,7 @@ Currently doing ML research at Texas A&M AgriLife and joining Cloudflare's AEO t
 - `index.html` - Semantic markup for all portfolio sections
 - `styles.css` - Global theme, layout, motion, and accessibility styles
 - `main.js` - Smooth navigation, scrollspy, and keyboard shortcuts
-- `ali_abouelazm_aiml (1).pdf` - Resume download
+- `ali_abouelazm_May26.pdf` - Resume download
 
 ## Local Development
 
