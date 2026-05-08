@@ -400,6 +400,8 @@ p {
   display: flex;
   flex-direction: column;
   transition: border-color 200ms ease;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
 }
 
 .stack-item:hover {
@@ -410,9 +412,31 @@ p {
   margin-bottom: 12px;
 }
 
+.stack-item .item-description {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+  margin-bottom: 0;
+  padding-right: 4px;
+}
+
+.stack-item .item-description::-webkit-scrollbar {
+  width: 3px;
+}
+
+.stack-item .item-description::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.stack-item .item-description::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 2px;
+}
+
 .stack-item .inline-actions {
-  margin-top: auto;
-  padding-top: 16px;
+  margin-top: 12px;
+  flex-shrink: 0;
 }
 
 .status-badge {
