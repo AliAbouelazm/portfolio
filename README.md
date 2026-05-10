@@ -13,6 +13,7 @@ Currently doing ML research at Texas A&M AgriLife and joining Cloudflare's AEO t
 - **[Sonus](https://github.com/AliAbouelazm/sonus)**: Autonomous LLM assistant orchestrating 10+ real integrations via a tool-calling agent loop
 - **[Drift](https://github.com/AliAbouelazm/drift)**: Fine-tuned DistilBERT sentiment classifier with anomaly detection and SHAP explanations. Live at drift.aliabouelazm.com
 - **[Wavelength](https://github.com/AliAbouelazm/wavelength)**: Mood-based music recommendation engine trained on 89K Spotify tracks. Live at wavelength.aliabouelazm.com
+- **[Interview Mirror](https://github.com/AliAbouelazm/interview-mirror)**: Real-time mock interview coach combining face emotion CNN, voice emotion CNN, and Whisper transcription into a fusion network for live confidence and engagement scoring
 
 ## Technical Skills
 
@@ -31,7 +32,7 @@ Currently doing ML research at Texas A&M AgriLife and joining Cloudflare's AEO t
 - `index.html` - Semantic markup for all portfolio sections
 - `styles.css` - Global theme, layout, motion, and accessibility styles
 - `main.js` - Smooth navigation, scrollspy, and keyboard shortcuts
-- `ali_abouelazm_May26.pdf` - Resume download
+- `ali_abouelazm_May09.pdf` - Resume download
 
 ## Local Development
 
