@@ -6,14 +6,19 @@ Personal portfolio website at [aliabouelazm.com](https://aliabouelazm.com) showc
 
 ML engineer building real-time AI systems: agentic LLM assistants, biosensor prediction pipelines, and computer vision tools that ship to users.
 
-Currently doing ML research at Texas A&M AgriLife and joining Cloudflare's AEO team summer 2026. Seeking full-time ML/AI Engineer roles, available May 2027.
+ML research at Texas A&M AgriLife, data science at Cloudflare over summer 2026, and joining Tesla's Fleet Analytics team as a Data Engineer Intern in fall 2026. Graduating May 2028.
 
 ## Featured Projects
 
+- **[Interview Mirror](https://github.com/AliAbouelazm/interview-mirror)**: Real-time mock interview coach combining face emotion CNN, voice emotion CNN, and Whisper transcription into a fusion network for live confidence and engagement scoring. Live at mirror.aliabouelazm.com
+- **[Isora](https://github.com/AliAbouelazm/isora)**: Photo to isometric illustration via a Stable Diffusion LoRA and Canny ControlNet, trained on Apple Silicon with no third-party image APIs
 - **[Sonus](https://github.com/AliAbouelazm/sonus)**: Autonomous LLM assistant orchestrating 10+ real integrations via a tool-calling agent loop
 - **[Drift](https://github.com/AliAbouelazm/drift)**: Fine-tuned DistilBERT sentiment classifier with anomaly detection and SHAP explanations. Live at drift.aliabouelazm.com
 - **[Wavelength](https://github.com/AliAbouelazm/wavelength)**: Mood-based music recommendation engine trained on 89K Spotify tracks. Live at wavelength.aliabouelazm.com
-- **[Interview Mirror](https://github.com/AliAbouelazm/interview-mirror)**: Real-time mock interview coach combining face emotion CNN, voice emotion CNN, and Whisper transcription into a fusion network for live confidence and engagement scoring
+- **[Clinix.ai](https://github.com/AliAbouelazm/clinix.ai)**: Educational clinical triage pipeline, LLM symptom parsing into scikit-learn risk scoring at 0.92 F1
+- **[Causal Marketing Impact](https://github.com/AliAbouelazm/Casual_Marketing_Impact)**: Double machine learning to separate real marketing ROI from confounded correlation
+- **[Offside](https://github.com/AliAbouelazm/offside)** *(in progress)*: YOLOv8 and ByteTrack tactical analytics on broadcast soccer footage
+- **[Foresight](https://github.com/AliAbouelazm/foresight)** *(in progress)*: TemporalCNN and Seq2Seq Transformer trajectory prediction for multi-player tracking
 
 ## Technical Skills
 
@@ -32,7 +37,7 @@ Currently doing ML research at Texas A&M AgriLife and joining Cloudflare's AEO t
 - `index.html` - Semantic markup for all portfolio sections
 - `styles.css` - Global theme, layout, motion, and accessibility styles
 - `main.js` - Smooth navigation, scrollspy, and keyboard shortcuts
-- `ali_abouelazm_May09.pdf` - Resume download
+- `ali_abouelazm_june23.pdf` - Resume download
 
 ## Local Development
 

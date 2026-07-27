@@ -118,7 +118,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const target = entry.target;
         if (!(target instanceof HTMLElement)) return;
 
-        if (entry.isIntersecting) {
+        // A section taller than the viewport can never reach a large ratio:
+        // only ~700px of it can ever intersect. Fall back to an absolute
+        // overlap so long sections still reveal.
+        const revealed =
+          entry.isIntersecting &&
+          (entry.intersectionRatio >= 0.2 || entry.intersectionRect.height >= 320);
+
+        if (revealed) {
           target.classList.add("is-visible");
           setActiveSection(target.id, true);
         } else {
@@ -128,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       root: null,
-      threshold: 0.2,
+      threshold: [0, 0.05, 0.1, 0.2, 0.35, 0.5, 0.75, 1],
       rootMargin: '-100px 0px -100px 0px',
     }
   );
@@ -242,12 +249,22 @@ document.addEventListener("DOMContentLoaded", () => {
 function initializeExperience() {
   const items = [
     {
+      company: 'Tesla',
+      role: 'Data Engineer Intern, Fleet Analytics',
+      date: 'Aug 2026 - Dec 2026',
+      description: [
+        'Incoming Fall 2026, building data pipelines and analytics tooling on petabyte-scale vehicle telemetry from millions of Tesla vehicles.',
+        'Enabling fleet-wide performance monitoring and data-driven insights across the Fleet Analytics team.'
+      ]
+    },
+    {
       company: 'Cloudflare',
-      role: 'AI Discoverability & Optimization Intern',
+      role: 'Data Science Intern',
       date: 'May 2026 - Aug 2026',
       description: [
-        'Working on the AEO (AI Engine Optimization) team focused on how large language models index, retrieve, and surface web content at scale.',
-        'Building technical frameworks to improve AI-driven content discoverability across Cloudflare\'s global network.'
+        'Pioneered a Narrative Mismatch Engine, a novel approach in the AEO space, ingesting 3 years of SEMrush data across 50K+ AI queries and thousands of pages to detect gaps between AI perception and intended product positioning.',
+        'Applied NLP and embedding-based semantic analysis to surface narrative drift across CDN, Zero Trust, and SASE product lines, enabling content teams to close AI perception gaps at scale.',
+        'Increased AI content visibility and narrative alignment across product marketing surfaces by driving data-informed updates from query-level mismatch signals.'
       ]
     },
     {
