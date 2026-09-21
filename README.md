@@ -37,7 +37,7 @@ ML research at Texas A&M AgriLife, data science at Cloudflare over summer 2026, 
 - `index.html` - Semantic markup for all portfolio sections
 - `styles.css` - Global theme, layout, motion, and accessibility styles
 - `main.js` - Smooth navigation, scrollspy, and keyboard shortcuts
-- `ali_abouelazm_june23.pdf` - Resume download
+- `ali_abouelazm_Sept20.pdf` - Resume download
 
 ## Local Development
 
